@@ -101,7 +101,7 @@
                             para.textContent = 'You clicked the button!';
                             document.body.appendChild(para);
                         }
-                        const buttons = document.querySelectorAll('button');
+                        const buttons = document.querySelectorAll('.btn-success');
                         for(let i = 0; i < buttons.length ; i++) {
                             buttons[i].addEventListener('click', createParagraph);
                         }
