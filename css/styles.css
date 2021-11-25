@@ -8,21 +8,22 @@ div {
     position: relative;
 }
 h1 {
-    color:#727724;
-    font-size: 5.625rem; /* 16px = 100% = 1em; So 90px = 562.5% = 5.625em */ 
     margin-top: 50px auto 0 auto;
+    color:rgb(12, 12, 77);
     font-family:'Sacramento', cursive;
+    font-size: 3rem;
+    line-height: 1.5;
 }
 h2 {
-    color:#727724;
-    font-size: 2.5rem;
+    color:rgb(56, 76, 187);
     font-family:'Montserrat', sans-serif;
+    font-size: 2.5rem;
     font-weight: normal;
     padding-bottom: 10px;
 }
 h3 {
-    font-family:'Montserrat', sans-serif;
     color:#11999E;
+    font-family:'Montserrat', sans-serif;
 }
 
 p {
@@ -46,9 +47,8 @@ a {
 
 /***************CLASS SELECTORS***************/
 
-.top
-{
-    background-color: #66bf9d;
+.container-fluid {
+    padding: 3% 15%;
     background-image:url("assets/study_1.jpg")
 }
 
@@ -166,9 +166,7 @@ a {
 }
 
 /***************ID SELECTORS***************/
-#heading
+#title
 {
-    color:white;
-    font-size: 50px;
-    background-color: rgb(191, 191, 240);
+    background-color: rgb(33, 95, 33);
 }
