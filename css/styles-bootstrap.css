@@ -134,8 +134,35 @@ p {
   padding: 3% 2%;
 }
 
+/***************Call to Action***************/
+#cta {
+  text-align: center;
+  background-color: rgb(33, 95, 33);
+  color: white;
+  padding: 7% 15%;
+}
+
+.cta-heading {
+  font-family: "Montserrat-Black", sans-serif;
+  font-size: 3.5rem;
+  line-height: 1.5;
+}
+
 /***************Get in Touch***************/
 
-.contact-buttom {
-  margin: 5% 3% 5% 0%;
+#contact {
+  text-align: center;
+
+  padding: 7% 15%;
+}
+
+/***************Footer***************/
+
+#footer {
+  padding: 7% 15%;
+  text-align: center;
+}
+
+.icon-footer {
+  margin: 0 10px 0 0;
 }
