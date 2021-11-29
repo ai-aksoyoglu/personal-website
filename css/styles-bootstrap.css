@@ -23,7 +23,7 @@ h2 {
 }
 
 p {
-  color: rgb(63, 6, 6);
+  color: black;
   font-size: 1.25rem;
 }
 
@@ -54,8 +54,6 @@ p {
 /*************** Title ***************/
 
 #title {
-  background-color: rgb(33, 95, 33);
-  color: white;
   text-align: left;
 }
 
@@ -73,10 +71,18 @@ p {
   line-height: 1.5;
 }
 
+.colored-section {
+  background-color: rgb(56, 134, 56);
+  color: white;
+}
+
+.white-section {
+  background-color: white;
+}
+
 /***************Skills***************/
 
 #skills {
-  background-color: white;
   position: relative;
   font-size: 1.5rem;
 }
@@ -109,8 +115,6 @@ p {
 
 #testimonials {
   text-align: left;
-  background-color: rgb(33, 95, 33);
-  color: white;
 }
 
 .img-testimonials {
@@ -122,17 +126,6 @@ p {
   text-align: left;
   font-size: 3rem;
   line-height: 1.5;
-}
-
-#press {
-  background-color: rgb(33, 95, 33);
-  color: white;
-}
-
-.img-press {
-  width: 15%;
-  border-radius: 100%;
-  margin: 20px;
 }
 
 /***************Pricing***************/
@@ -151,8 +144,6 @@ p {
 
 /***************Call to Action***************/
 #cta {
-  background-color: rgb(33, 95, 33);
-  color: white;
   padding: 7% 15%;
 }
 
@@ -166,4 +157,13 @@ p {
 
 .icon-footer {
   margin: 0 10px 0 0;
+}
+
+.footer-link {
+  color: #0000ff;
+  margin-bottom: 1rem;
+}
+
+.footer-link:hover {
+  color: rgb(0, 209, 209);
 }
