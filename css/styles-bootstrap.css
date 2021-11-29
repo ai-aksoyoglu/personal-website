@@ -112,6 +112,15 @@ p {
   margin: 20px;
 }
 
+/***************Pricing***************/
+#pricing {
+  padding: 100px;
+}
+
+.pricing-column {
+  padding: 3% 2%;
+}
+
 /***************Get in Touch***************/
 
 .contact-buttom {
