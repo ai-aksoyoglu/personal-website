@@ -10,7 +10,7 @@ body {
 }
 
 .container-fluid {
-  padding: 3% 15%;
+  padding: 3% 15% 7%;
 }
 
 h1 {
@@ -38,7 +38,7 @@ p {
   color: rgb(63, 6, 6);
 }
 
-.title-image {
+.img-profile {
   width: 60%;
 }
 
@@ -66,11 +66,24 @@ p {
 
 #skills {
   padding: 7% 15%;
+  background-color: white;
+  position: relative;
+}
+
+@media (max-width: 1028px) {
+  #skills {
+    text-align: center;
+  }
+
+  .img-skills-background {
+    position: static;
+  }
 }
 
 .skill {
   text-align: center;
   padding: 5%;
+  z-index: 1;
 }
 
 .icon {
