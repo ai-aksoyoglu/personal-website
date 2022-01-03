@@ -16,6 +16,15 @@ document
   .item(0)
   .addEventListener('click', openDicePage);
 
+document
+  .getElementsByClassName('btn drums-page')
+  .item(0)
+  .addEventListener('click', openDrumsPage);
+
 function openDicePage() {
   window.open((href = 'dice.html'));
+}
+
+function openDrumsPage() {
+  window.open((href = 'drums.html'));
 }
