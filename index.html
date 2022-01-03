@@ -59,20 +59,8 @@
                 <p class="contact-message">Lorem ipsum dolor sit amet, in quis, aenean amet. Phasellus sodales, tellus donec dui, ornare erat.</p>
                 <a class="btn" href="mailto:name@email.com">CONTACT ME</a>
                 
-                <button type="button" class="btn">Click & scroll for a surprise ;-)</button>
-                <script>
-                    document.addEventListener("DOMContentLoaded", function() {
-                        function createParagraph() {
-                            let para = document.createElement('p');
-                            para.textContent = 'You clicked the button!';
-                            document.body.appendChild(para);
-                        }
-                        const buttons = document.querySelectorAll('.btn');
-                        for(let i = 0; i < buttons.length ; i++) {
-                            buttons[i].addEventListener('click', createParagraph);
-                        }
-                    });
-                </script>
+                <button type="button" class="btn dice-page">Dice Roll</button> 
+
             </div>
         </div>          
         
@@ -83,6 +71,9 @@
             <p class="copyright">© Name Surname</p>
         </div>
 
+
+        <!-- My Javascript -->
+        <script src="main.js" charset="utf-8"></script>
     </body>
 
 </html>
