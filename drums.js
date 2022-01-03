@@ -1,11 +1,15 @@
 for (var i = 0; i < document.querySelectorAll('.drum').length; i++) {
-  document.querySelectorAll('.drum')[i].addEventListener('click', handleclick);
+  document.querySelectorAll('.drum')[i].addEventListener('click', function () {
+    var buttonInnerHTML = this.innerHTML;
+    makeSound(buttonInnerHTML);
+  });
 }
+document.addEventListener('keydown', function (event) {
+  makeSound(event.key);
+});
 
-function handleclick() {
-  var buttonInnerHTML = this.innerHTML;
-
-  switch (buttonInnerHTML) {
+function makeSound(key) {
+  switch (key) {
     case 'w':
       new Audio('assets/drums/tom-1.mp3').play();
       break;
