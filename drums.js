@@ -4,6 +4,11 @@ $('button').click(function () {
   buttonAnimation(buttonInnerHTML);
 });
 
+$('body').keypress(function (event) {
+  makeSound(event.key);
+  buttonAnimation(event.key);
+});
+
 /* without jQuery
 for (var i = 0; i < document.querySelectorAll('.drum').length; i++) {
   document.querySelectorAll('.drum')[i].addEventListener('click', function () {
@@ -11,12 +16,12 @@ for (var i = 0; i < document.querySelectorAll('.drum').length; i++) {
     makeSound(buttonInnerHTML);
     buttonAnimation(buttonInnerHTML);
   });
-}*/
+}
 
 document.addEventListener('keydown', function (event) {
   makeSound(event.key);
   buttonAnimation(event.key);
-});
+});*/
 
 function makeSound(key) {
   switch (key) {
