@@ -13,6 +13,6 @@ $('button').click(function () {
   $('h1').css('color', 'purple');
 });
 
-$('body').keypress(function (event) {
+$('document').keypress(function (event) {
   console.log(event.key);
 });
