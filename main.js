@@ -23,8 +23,6 @@ $('.simon-page').click(function () {
   window.open((href = 'simon.html'));
 });
 
-$('.calculator-page').click(function () {
-  window.open((href = 'calculator.html'));
+$('.bmi-page').click(function () {
+  window.open((href = 'http://localhost:3000/'));
 });
-
-const express = require('express');

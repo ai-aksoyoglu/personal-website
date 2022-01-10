@@ -2,7 +2,7 @@
   "name": "personal-website",
   "version": "1.0.0",
   "description": "This is my personal website project.",
-  "main": "main.js",
+  "main": "bmi.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/ai-aksoyoglu/personal-website/issues"
   },
-  "homepage": "https://github.com/ai-aksoyoglu/personal-website#readme"
+  "homepage": "https://github.com/ai-aksoyoglu/personal-website#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "jquery": "^3.6.0"
+  }
 }
