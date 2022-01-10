@@ -11,14 +11,20 @@
   }
 });*/
 
-$(".dice-page").click(function () {
-  window.open((href = "dice.html"));
+$('.dice-page').click(function () {
+  window.open((href = 'dice.html'));
 });
 
-$(".drums-page").click(function () {
-  window.open((href = "drums.html"));
+$('.drums-page').click(function () {
+  window.open((href = 'drums.html'));
 });
 
-$(".simon-page").click(function () {
-  window.open((href = "simon.html"));
+$('.simon-page').click(function () {
+  window.open((href = 'simon.html'));
 });
+
+$('.calculator-page').click(function () {
+  window.open((href = 'calculator.html'));
+});
+
+const express = require('express');
