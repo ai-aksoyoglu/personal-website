@@ -11,20 +11,14 @@
   }
 });*/
 
-document
-  .getElementsByClassName('btn dice-page')
-  .item(0)
-  .addEventListener('click', openDicePage);
+$(".dice-page").click(function () {
+  window.open((href = "dice.html"));
+});
 
-document
-  .getElementsByClassName('btn drums-page')
-  .item(0)
-  .addEventListener('click', openDrumsPage);
+$(".drums-page").click(function () {
+  window.open((href = "drums.html"));
+});
 
-function openDicePage() {
-  window.open((href = 'dice.html'));
-}
-
-function openDrumsPage() {
-  window.open((href = 'drums.html'));
-}
+$(".simon-page").click(function () {
+  window.open((href = "simon.html"));
+});
