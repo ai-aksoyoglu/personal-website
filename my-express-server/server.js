@@ -5,8 +5,8 @@ app.get('/', function (req, res) {
   res.send('Hello');
 });
 
-app.get('/contact', function (req, res) {
-  res.send('Contact me at this email:_____');
+app.get('/calculator', function (req, res) {
+  res.send('<h1>Calculator</h1>');
 });
 
 app.listen(3000, function () {
