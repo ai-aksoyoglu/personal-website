@@ -23,6 +23,10 @@ $('.simon-page').click(function () {
   window.open((href = 'simon.html'));
 });
 
+$('.bmi-page').click(function () {
+  window.open((href = 'http://localhost:3000/bmi'));
+});
+
 $('.weather-page').click(function () {
   window.open((href = 'http://localhost:3000/weather'));
 });

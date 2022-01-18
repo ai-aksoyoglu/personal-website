@@ -20,14 +20,29 @@ app.get('/weather', function (req, res) {
         const weatherData = JSON.parse(data);
         const temp = weatherData.main.temp;
         const weatherDescription = weatherData.weather[0].description;
-        console.log(temp, weatherDescription);
+        const icon = weatherData.weather[0].icon;
+        const imageURL = 'http://openweathermap.org/img/wn/' + icon + '@2x.png';
+
+        res.write(
+          '<p>The weather is currently ' +
+            weatherDescription +
+            '. </p><img src=' +
+            imageURL +
+            '>'
+        );
+        res.write(
+          '<h1>The temperature in Berlin is now ' +
+            temp +
+            ' degrees Celcius.</h1>'
+        );
+        res.send();
       });
     })
     .on('error', (e) => {
       console.error(e);
     });
 
-  res.sendFile(__dirname + '/weather.html');
+  /*res.sendFile(__dirname + '/weather.html');*/
 });
 
 app.listen(3000, function () {
