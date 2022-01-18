@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
-    <title>Calculator</title>
+    <title>Weather</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster"
@@ -12,11 +12,13 @@
   <body>
     <div class="container">
       <h1>Weather Report</h1>
-      <form action="/" method="post">
-        <input type="text" name="weight" placeholder="weight (kg)" />
-        <input type="text" name="height" placeholder="height (m)" />
+      <form action="/weather" method="post">
+        <lable for="cityInput">City: </lable>
+        <input id="cityInput" type="text" name="cityName" placeholder="" />
         <br />
-        <button type="submit" name="submit" class="btn">Calculate BMI</button>
+        <button type="submit" name="submit" class="btn">
+          Check the weather there
+        </button>
       </form>
     </div>
   </body>
