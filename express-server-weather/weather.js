@@ -10,21 +10,24 @@ app.get('/', function (req, res) {
 
 app.get('/weather', function (req, res) {
   const url =
-    'https://api.openweathermap.org/data/2.5/weather?q=Berlin&callback=test&appid=bbfc773fa75427fe40a14807a7863b2a&units=metric';
+    'https://api.openweathermap.org/data/2.5/weather?q=Berlin&appid=bbfc773fa75427fe40a14807a7863b2a&units=metric';
   https
     .get(url, (response) => {
       console.log('statusCode:', response.statusCode);
       console.log('headers:', response.headers);
 
-      response.on('data', (d) => {
-        process.stdout.write(d);
+      response.on('data', function (data) {
+        const weatherData = JSON.parse(data);
+        const temp = weatherData.main.temp;
+        const weatherDescription = weatherData.weather[0].description;
+        console.log(temp, weatherDescription);
       });
     })
     .on('error', (e) => {
       console.error(e);
     });
 
-  res.send('<h1>Weather App</h1>');
+  res.sendFile(__dirname + '/weather.html');
 });
 
 app.listen(3000, function () {
