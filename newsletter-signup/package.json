@@ -1,8 +1,8 @@
 {
-  "name": "my-express-server",
+  "name": "newsletter-signup",
   "version": "1.0.0",
-  "description": "An express server for weather reports.",
-  "main": "weather.js",
+  "description": "An express server for to signup to my newsletter.",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -10,6 +10,8 @@
   "author": "Alexandra",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.2"
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "https": "^1.0.0"
   }
 }
