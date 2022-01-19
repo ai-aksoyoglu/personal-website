@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ai-aksoyoglu/personal-website#readme",
   "dependencies": {
+    "@mailchimp/mailchimp_marketing": "^3.0.73",
     "body-parser": "^1.19.1",
     "express": "^4.17.2",
     "https": "^1.0.0",

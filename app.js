@@ -3,6 +3,18 @@ const bodyParser = require('body-parser');
 const https = require('https');
 const request = require('request');
 
+const mailchimp = require('@mailchimp/mailchimp_marketing');
+mailchimp.setConfig({
+  apiKey: 'd811cff0f13135db37c4bf37fd4e3b89-us20',
+  server: 'us20',
+});
+/*check if mailchimp works successfully (api call)
+async function run() {
+  const response = await mailchimp.ping.get();
+  console.log(response);
+}
+run();*/
+
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
@@ -98,3 +110,9 @@ app.post('/newsletter-signup', function (req, res) {
       '. Thank you for signing up for the newsletter service.</h1>'
   );
 });
+
+//API Key (mailchimp)
+//d811cff0f13135db37c4bf37fd4e3b89-us20
+
+//AudienceID (mailchimp)
+//cbf7b19400
