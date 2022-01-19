@@ -1,10 +1,15 @@
 const express = require('express');
-const https = require('https');
 const bodyParser = require('body-parser');
+const https = require('https');
+const request = require('request');
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
+
+app.listen(3000, function () {
+  console.log('Server started running on port 3000');
+});
 
 app.get('/', function (req, res) {
   res.send(
@@ -75,6 +80,6 @@ app.post('/weather', function (req, res) {
     });
 });
 
-app.listen(3000, function () {
-  console.log('Server started running on port 3000');
+app.get('/newsletter-signup', function (req, res) {
+  res.sendFile(__dirname + '/newsletter-signup.html');
 });

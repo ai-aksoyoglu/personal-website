@@ -11,22 +11,26 @@
   }
 });*/
 
-$('.dice-page').click(function () {
+$('.dice-page').on('click', function () {
   window.open((href = 'dice.html'));
 });
 
-$('.drums-page').click(function () {
+$('.drums-page').on('click', function () {
   window.open((href = 'drums.html'));
 });
 
-$('.simon-page').click(function () {
+$('.simon-page').on('click', function () {
   window.open((href = 'simon.html'));
 });
 
-$('.bmi-page').click(function () {
+$('.bmi-page').on('click', function () {
   window.open((href = 'http://localhost:3000/bmi'));
 });
 
-$('.weather-page').click(function () {
+$('.weather-page').on('click', function () {
   window.open((href = 'http://localhost:3000/weather'));
+});
+
+$('.newsletter-signup-page').on('click', function () {
+  window.open((href = 'http://localhost:3000/newsletter-signup'));
 });
