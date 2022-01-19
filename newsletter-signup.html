@@ -30,12 +30,13 @@
   </head>
 
   <body class="text-center">
-    <form class="form-signin">
+    <form class="form-signin" action="/newsletter-signup" method="post">
       <img class="mb-4" src="/assets/logo_mymoria.png" alt="" width="250" />
       <h1 class="h3 mb-3 font-weight-normal">Signup to mymoria newsletter!</h1>
 
       <input
         type="text"
+        name="firstName"
         class="form-control top"
         placeholder="First Name"
         required
@@ -44,6 +45,7 @@
 
       <input
         type="text"
+        name="lastName"
         class="form-control middle"
         placeholder="Last Name"
         required
@@ -51,6 +53,7 @@
 
       <input
         type="email"
+        name="email"
         class="form-control bottom"
         placeholder="Email address"
         required

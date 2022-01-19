@@ -83,3 +83,18 @@ app.post('/weather', function (req, res) {
 app.get('/newsletter-signup', function (req, res) {
   res.sendFile(__dirname + '/newsletter-signup.html');
 });
+
+app.post('/newsletter-signup', function (req, res) {
+  var firstName = req.body.firstName;
+  var lastName = req.body.lastName;
+  var email = req.body.email;
+  res.send(
+    '<h1>Your name is ' +
+      firstName +
+      ' ' +
+      lastName +
+      ' and your email address is ' +
+      email +
+      '. Thank you for signing up for the newsletter service.</h1>'
+  );
+});
