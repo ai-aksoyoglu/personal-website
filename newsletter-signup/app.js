@@ -1,6 +1,6 @@
 const express = require('express');
-const https = require('https');
 const bodyParser = require('body-parser');
+const request = require('request');
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -12,8 +12,8 @@ app.get('/', function (req, res) {
   );
 });
 
-app.get('/weather', function (req, res) {
-  res.sendFile(__dirname + '/weather.html');
+app.get('/newsletter-signup', function (req, res) {
+  res.sendFile(__dirname + '/signup.html');
 });
 
 app.post('/weather', function (req, res) {
