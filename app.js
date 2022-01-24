@@ -19,6 +19,8 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
+app.use('view engine', 'ejs');
+
 app.listen(process.env.PORT || 3000, function () {
   console.log('Server started running on port 3000');
 });
@@ -169,14 +171,14 @@ app.post('/newsletter-failure', function (req, res) {
 app.get('/todolist', function (req, res) {
   var today = new Date();
   var currentDay = today.getDay();
+  var day = '';
 
   if (currentDay === 6 || currentDay === 0) {
-    res.write("<h1>Yay it's the weekend!</h1>");
+    day = 'weekend';
   } else {
-    res.write('<p>Today is a weekday.</p>');
-    res.write("<h1>I like working so I'm happy!</h1>");
-    res.send();
+    day = 'weekday';
   }
 
-  /*res.sendFile(__dirname + '/todolist.html');*/
+  res.render('list', { kindOfDay: day });
+  res.sendFile(__dirname + '/todolist.html');
 });
