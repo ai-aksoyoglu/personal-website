@@ -19,7 +19,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-app.use('view engine', 'ejs');
+app.set('view engine', 'ejs');
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('Server started running on port 3000');
@@ -170,35 +170,15 @@ app.post('/newsletter-failure', function (req, res) {
 
 app.get('/todolist', function (req, res) {
   var today = new Date();
-  var currentDay = today.getDay();
-  var day = '';
+  var options = { weekday: 'long', day: 'numeric', month: 'long' };
 
-  switch (currentDay) {
-    case 0:
-      day = 'Monday';
-      break;
-    case 1:
-      day = 'Tuesday';
-      break;
-    case 2:
-      day = 'Wednesday';
-      break;
-    case 3:
-      day = 'Thursday';
-      break;
-    case 4:
-      day = 'Friday';
-      break;
-    case 5:
-      day = 'Saturday';
-      break;
-    case 6:
-      day = 'Sunday';
-      break;
-    default:
-      console.log('Error: current day is equal to: ' + currentDay);
-  }
+  var day = today.toLocaleDateString('en-US', options);
 
   res.render('list', { kindOfDay: day });
-  /*res.sendFile(__dirname + '/todolist.html');*/
+});
+
+app.post('/todolist', function (req, res) {
+  var item = req.body.newItem;
+
+  res.render('list', { newItem: item });
 });

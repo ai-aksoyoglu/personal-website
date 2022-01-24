@@ -29,7 +29,34 @@
     <link href="/css/newsletter-signup.css" rel="stylesheet" />
   </head>
 
-  <body class="text-center">
-    <h1>It's a <%= kindOfDay %>!</h1>
+  <body>
+    <h1><%= kindOfDay %>!</h1>
+
+    <ul>
+      <li>Buy Food</li>
+      <li>Cook</li>
+      <li>Eat :-)</li>
+    </ul>
+
+    <form class="form-signin" action="/todolist" method="post">
+      <img class="mb-4" src="/assets/logo_mymoria.png" alt="" width="250" />
+      <h1 class="h3 mb-3 font-weight-normal">
+        What else would you like to do on this day?
+      </h1>
+
+      <input
+        type="text"
+        name="newItem"
+        class="form-control bottom"
+        placeholder="newItem"
+        required
+        autofocus
+      />
+
+      <button class="btn btn-lg btn-primary btn-block" type="submit">
+        Add to list!
+      </button>
+      <p class="mt-5 mb-3 text-muted">&copy; mymoria</p>
+    </form>
   </body>
 </html>
