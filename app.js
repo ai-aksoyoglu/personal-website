@@ -170,14 +170,14 @@ app.post('/newsletter-failure', function (req, res) {
 });*/
 
 app.get('/todolist', function (req, res) {
-  var today = new Date();
-  var options = { weekday: 'long', day: 'numeric', month: 'long' };
-  var day = today.toLocaleDateString('en-US', options);
+  let today = new Date();
+  let options = { weekday: 'long', day: 'numeric', month: 'long' };
+  let day = today.toLocaleDateString('en-US', options);
   res.render('list', { kindOfDay: day, newListItems: items });
 });
 
 app.post('/todolist', function (req, res) {
-  var item = req.body.newItem;
+  let item = req.body.newItem;
   items.push(item);
   res.redirect('/todolist');
 });
