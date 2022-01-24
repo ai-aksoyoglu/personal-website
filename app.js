@@ -167,5 +167,12 @@ app.post('/newsletter-failure', function (req, res) {
 });*/
 
 app.get('/todolist', function (req, res) {
-  res.sendFile(__dirname + '/todolist.html');
+  var today = new Date();
+  if (today.getDay() === 6 || today.getDay() === 0) {
+    res.send("Yay it's the weekend!");
+  } else {
+    res.send('Today is a weekday.');
+  }
+
+  /*res.sendFile(__dirname + '/todolist.html');*/
 });
