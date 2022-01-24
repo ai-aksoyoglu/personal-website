@@ -34,3 +34,7 @@ $('.weather-page').on('click', function () {
 $('.newsletter-signup-page').on('click', function () {
   window.open((href = 'http://localhost:3000/newsletter-signup'));
 });
+
+$('.todolist-page').on('click', function () {
+  window.open((href = 'http://localhost:3000/todolist'));
+});

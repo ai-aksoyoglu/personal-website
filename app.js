@@ -137,8 +137,7 @@ app.post('/newsletter-failure', function (req, res) {
   res.redirect('/newsletter-signup');
 });
 
-/*
-  const url = "https://us20.api.mailchimp.com/3.0/lists/" + list_id;
+/*const url = "https://us20.api.mailchimp.com/3.0/lists/" + list_id;
 
   const options = {
     method: "POST",
@@ -166,3 +165,7 @@ app.post('/newsletter-failure', function (req, res) {
       ". Thank you for signing up for the newsletter service.</h1>"
   );
 });*/
+
+app.get('/todolist', function (req, res) {
+  res.sendFile(__dirname + '/todolist.html');
+});
