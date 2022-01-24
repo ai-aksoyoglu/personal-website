@@ -173,12 +173,32 @@ app.get('/todolist', function (req, res) {
   var currentDay = today.getDay();
   var day = '';
 
-  if (currentDay === 6 || currentDay === 0) {
-    day = 'weekend';
-  } else {
-    day = 'weekday';
+  switch (currentDay) {
+    case 0:
+      day = 'Monday';
+      break;
+    case 1:
+      day = 'Tuesday';
+      break;
+    case 2:
+      day = 'Wednesday';
+      break;
+    case 3:
+      day = 'Thursday';
+      break;
+    case 4:
+      day = 'Friday';
+      break;
+    case 5:
+      day = 'Saturday';
+      break;
+    case 6:
+      day = 'Sunday';
+      break;
+    default:
+      console.log('Error: current day is equal to: ' + currentDay);
   }
 
   res.render('list', { kindOfDay: day });
-  res.sendFile(__dirname + '/todolist.html');
+  /*res.sendFile(__dirname + '/todolist.html');*/
 });
