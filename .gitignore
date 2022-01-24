@@ -1,0 +1,4 @@
+node_modules
+Story/.secret
+Story/secret.txt
+.env
