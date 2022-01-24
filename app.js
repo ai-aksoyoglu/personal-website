@@ -171,9 +171,11 @@ app.get('/todolist', function (req, res) {
   var currentDay = today.getDay();
 
   if (currentDay === 6 || currentDay === 0) {
-    res.send("Yay it's the weekend!");
+    res.write("<h1>Yay it's the weekend!</h1>");
   } else {
-    res.send('Today is a weekday.');
+    res.write('<p>Today is a weekday.</p>');
+    res.write("<h1>I like working so I'm happy!</h1>");
+    res.send();
   }
 
   /*res.sendFile(__dirname + '/todolist.html');*/
