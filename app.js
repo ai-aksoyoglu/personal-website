@@ -20,6 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
+var items = [];
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('Server started running on port 3000');
@@ -171,14 +172,11 @@ app.post('/newsletter-failure', function (req, res) {
 app.get('/todolist', function (req, res) {
   var today = new Date();
   var options = { weekday: 'long', day: 'numeric', month: 'long' };
-
   var day = today.toLocaleDateString('en-US', options);
-
-  res.render('list', { kindOfDay: day });
+  res.render('list', { kindOfDay: day, newListItem: items });
 });
 
 app.post('/todolist', function (req, res) {
-  var item = req.body.newItem;
-
-  res.render('list', { newItem: item });
+  items.push(req.body.newItem);
+  res.redirect('/todolist');
 });
