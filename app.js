@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const https = require('https');
 const request = require('request');
+const date = require(__dirname + '/date.js');
 
 const mailchimp = require('@mailchimp/mailchimp_marketing');
 mailchimp.setConfig({
@@ -169,9 +170,7 @@ app.post('/newsletter-failure', function (req, res) {
 });*/
 
 app.get('/todolist', function (req, res) {
-  let today = new Date();
-  let options = { weekday: 'long', day: 'numeric', month: 'long' };
-  let day = today.toLocaleDateString('en-US', options);
+  let day = date();
   res.render('list', { listTitle: day, newListItems: items });
 });
 
