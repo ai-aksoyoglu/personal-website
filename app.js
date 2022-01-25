@@ -21,8 +21,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
-let items = ['Buy food', 'Cook', 'Eat :-)'];
-let workItems = [];
+const items = ['Buy food', 'Cook', 'Eat :-)'];
+const workItems = [];
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('Server started running on port 3000');
@@ -170,13 +170,13 @@ app.post('/newsletter-failure', function (req, res) {
 });*/
 
 app.get('/todolist', function (req, res) {
-  /*let day = date.getDay();*/
-  let day = date.getDate();
+  /*const day = date.getDay();*/
+  const day = date.getDate();
   res.render('list', { listTitle: day, newListItems: items });
 });
 
 app.post('/todolist', function (req, res) {
-  let item = req.body.newItem;
+  const item = req.body.newItem;
 
   if (req.body.list === 'Work') {
     workItems.push(item);
@@ -192,7 +192,7 @@ app.get('/work', function (req, res) {
 });
 
 app.post('/work', function (req, res) {
-  let item = req.body;
+  const item = req.body;
   workItems.push(item);
   res.redirect('/work');
 });
