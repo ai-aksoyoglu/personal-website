@@ -42,3 +42,7 @@ $('.todolist-page').on('click', function () {
 $('.about-page').on('click', function () {
   window.open((href = 'http://localhost:3000/'));
 });
+
+$('.blog-page').on('click', function () {
+  window.open((href = 'http://localhost:3000/blog-home'));
+});
