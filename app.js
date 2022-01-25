@@ -28,9 +28,7 @@ app.listen(process.env.PORT || 3000, function () {
 });
 
 app.get('/', function (req, res) {
-  res.send(
-    'Hello. Would you like to know the weather forcast? Check out http://localhost:3000/weather<br>Would you like to calculate your BMI? Check out https://localhost:3000/bmi'
-  );
+  res.render('about');
 });
 
 /*__dirname = /home/alexandra/Desktop/_Web Development_/personal-website*/

@@ -38,3 +38,7 @@ $('.newsletter-signup-page').on('click', function () {
 $('.todolist-page').on('click', function () {
   window.open((href = 'http://localhost:3000/todolist'));
 });
+
+$('.about-page').on('click', function () {
+  window.open((href = 'http://localhost:3000/'));
+});
