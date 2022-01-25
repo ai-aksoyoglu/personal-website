@@ -20,7 +20,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
-var items = ['Buy food', 'Cook', 'Eat :-)'];
+let items = ['Buy food', 'Cook', 'Eat :-)'];
+let workItems = [];
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('Server started running on port 3000');
@@ -173,11 +174,27 @@ app.get('/todolist', function (req, res) {
   let today = new Date();
   let options = { weekday: 'long', day: 'numeric', month: 'long' };
   let day = today.toLocaleDateString('en-US', options);
-  res.render('list', { kindOfDay: day, newListItems: items });
+  res.render('list', { listTitle: day, newListItems: items });
 });
 
 app.post('/todolist', function (req, res) {
   let item = req.body.newItem;
-  items.push(item);
-  res.redirect('/todolist');
+
+  if (req.body.list === 'Work') {
+    workItems.push(item);
+    res.redirect('/work');
+  } else {
+    items.push(item);
+    res.redirect('/todolist');
+  }
+});
+
+app.get('/work', function (req, res) {
+  res.render('list', { listTitle: 'Work List', newListItems: workItems });
+});
+
+app.post('/work', function (req, res) {
+  let item = req.body;
+  workItems.push(item);
+  res.redirect('/work');
 });
