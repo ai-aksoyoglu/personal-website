@@ -170,7 +170,8 @@ app.post('/newsletter-failure', function (req, res) {
 });*/
 
 app.get('/todolist', function (req, res) {
-  let day = date();
+  /*let day = date.getDay();*/
+  let day = date.getDate();
   res.render('list', { listTitle: day, newListItems: items });
 });
 
