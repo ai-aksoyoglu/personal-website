@@ -2,10 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content="" />
     <meta name="author" content="" />
 
@@ -20,8 +17,7 @@
       <h1><%= kindOfDay %>!</h1>
     </div>
     
-    <div class="box">
-          
+    <div class="box">          
      <% for (let i=0; i<newListItems.length; i++) {%>
       <div class="item">
         <input type="checkbox">
@@ -29,14 +25,9 @@
       </div>        
       <% } %>
 
-    <form class="item" action="/todolist" method="post">
-      
+    <form class="item" action="/todolist" method="post">      
       <input type="text" name="newItem" placeholder="anything else?" required autofocus/>
-
-      <button class="" type="submit" name="button">
-        +
-      </button>
-      
+      <button class="" type="submit" name="button">+</button>      
     </form>
 
     </div>
