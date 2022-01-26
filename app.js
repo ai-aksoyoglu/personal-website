@@ -201,3 +201,11 @@ app.get('/work', function (req, res) {
 app.get('/blog-home', function (req, res) {
   res.render('blog-home', { homeContent: homeStartingContent });
 });
+
+app.get('/blog-about', function (req, res) {
+  res.render('blog-about', { aboutContent: aboutContent });
+});
+
+app.get('/blog-contact', function (req, res) {
+  res.render('blog-contact', { contactContent: contactContent });
+});
