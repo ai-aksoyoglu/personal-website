@@ -2,4 +2,8 @@
 
 <h1>Home</h1>
 <p><%=homeContent%></p>
-<%console.log(posts);%> <%- include("partials/blog-footer"); -%>
+
+<% for (let i=0; i<posts.length; i++) {%>
+  <%console.log(posts[i].title);%> <%}; %> <%- include("partials/blog-footer");
+  -%>
+</posts.length;>
