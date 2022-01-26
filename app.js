@@ -230,11 +230,12 @@ app.post('/blog-compose', function (req, res) {
 
 app.get('/posts/:postName', function (req, res) {
   const requestedTitle = _.kebabCase(req.params.postName);
-
   posts.forEach(function (post) {
     const storedTitle = _.kebabCase(post.title);
     if (requestedTitle === storedTitle) {
-      console.log('Match found!');
+      res.render('blog-post', { post: post });
+    } else {
+      res.redirect('/blog-home');
     }
   });
 });
