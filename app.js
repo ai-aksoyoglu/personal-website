@@ -199,5 +199,5 @@ app.get('/work', function (req, res) {
 });
 
 app.get('/blog-home', function (req, res) {
-  res.render('blog-home', {});
+  res.render('blog-home', { homeContent: homeStartingContent });
 });
