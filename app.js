@@ -227,6 +227,12 @@ app.post('/blog-compose', function (req, res) {
 });
 
 app.get('/posts/:postName', function (req, res) {
-  /*res.send(req.params)*/
-  console.log(req.params.postName);
+  const requestedTitle = req.params.postName;
+
+  posts.forEach(function (post) {
+    const storedTitle = post.title;
+    if (requestedTitle === storedTitle) {
+      console.log('Match found!');
+    }
+  });
 });
