@@ -3,7 +3,5 @@
 <h1>Home</h1>
 <p><%=homeContent%></p>
 
-<% for (let i=0; i<posts.length; i++) {%>
-  <%console.log(posts[i].title);%> <%}; %> <%- include("partials/blog-footer");
-  -%>
-</posts.length;>
+<%posts.forEach(function(post) { console.log(post.title);});%> <%-
+include("partials/blog-footer"); -%>
