@@ -198,12 +198,6 @@ app.get('/work', function (req, res) {
   res.render('list', { listTitle: 'Work List', newListItems: workItems });
 });
 
-app.post('/work', function (req, res) {
-  const item = req.body;
-  workItems.push(item);
-  res.redirect('/work');
-});
-
 app.get('/blog-home', function (req, res) {
   res.render('blog-home', {});
 });
