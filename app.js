@@ -218,3 +218,7 @@ app.get('/blog-contact', function (req, res) {
 app.get('/blog-compose', function (req, res) {
   res.render('blog-compose', {});
 });
+
+app.post('/blog-compose', function (req, res) {
+  console.log(req.body.postTitle);
+});
