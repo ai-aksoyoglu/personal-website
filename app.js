@@ -30,6 +30,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 const items = ['Buy food', 'Cook', 'Eat :-)'];
 const workItems = [];
+const posts = [];
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('Server started running on port 3000');
@@ -221,5 +222,7 @@ app.get('/blog-compose', function (req, res) {
 
 app.post('/blog-compose', function (req, res) {
   const post = { title: req.body.postTitle, content: req.body.postBody };
-  console.log(post);
+  posts.push(post);
+  res.redirect('/blog-home');
+  console.log(posts);
 });
