@@ -209,3 +209,7 @@ app.get('/blog-about', function (req, res) {
 app.get('/blog-contact', function (req, res) {
   res.render('blog-contact', { contactContent: contactContent });
 });
+
+app.get('/blog-compose', function (req, res) {
+  res.render('blog-compose', {});
+});
