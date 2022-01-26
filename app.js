@@ -184,8 +184,9 @@ app.get('/todolist', function (req, res) {
 
 app.post('/todolist', function (req, res) {
   const item = req.body.newItem;
+  console.log(req.body.list);
 
-  if (req.body.list === 'Work') {
+  if (req.body.list === 'work') {
     workItems.push(item);
     res.redirect('/work');
   } else {
@@ -195,7 +196,11 @@ app.post('/todolist', function (req, res) {
 });
 
 app.get('/work', function (req, res) {
-  res.render('list', { listTitle: 'Work List', newListItems: workItems });
+  res.render('list', {
+    listTitle: 'Work List',
+    listValue: 'work',
+    newListItems: workItems,
+  });
 });
 
 app.get('/blog-home', function (req, res) {
