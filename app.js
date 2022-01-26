@@ -225,3 +225,8 @@ app.post('/blog-compose', function (req, res) {
   posts.push(post);
   res.redirect('/blog-home');
 });
+
+app.get('/posts/:postName', function (req, res) {
+  /*res.send(req.params)*/
+  console.log(req.params.postName);
+});
