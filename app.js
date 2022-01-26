@@ -205,7 +205,7 @@ app.get('/work', function (req, res) {
 });
 
 app.get('/blog-home', function (req, res) {
-  res.render('blog-home', { homeContent: homeStartingContent });
+  res.render('blog-home', { homeContent: homeStartingContent, posts: posts });
 });
 
 app.get('/blog-about', function (req, res) {
@@ -224,5 +224,4 @@ app.post('/blog-compose', function (req, res) {
   const post = { title: req.body.postTitle, content: req.body.postBody };
   posts.push(post);
   res.redirect('/blog-home');
-  console.log(posts);
 });
