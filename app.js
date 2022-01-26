@@ -30,7 +30,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 const items = ['Buy food', 'Cook', 'Eat :-)'];
 const workItems = [];
-const posts = [];
+let posts = [];
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('Server started running on port 3000');

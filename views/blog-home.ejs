@@ -3,5 +3,8 @@
 <h1>Home</h1>
 <p><%=homeContent%></p>
 
-<%posts.forEach(function(post) { console.log(post.title);});%> <%-
-include("partials/blog-footer"); -%>
+<%posts.forEach(function(post) { %>
+<h1><%=post.title%></post></h1>
+<p><%=post.content%></p>
+<%});%> 
+<%- include("partials/blog-footer"); -%>
