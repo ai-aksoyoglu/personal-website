@@ -220,5 +220,6 @@ app.get('/blog-compose', function (req, res) {
 });
 
 app.post('/blog-compose', function (req, res) {
-  console.log(req.body.postTitle);
+  const post = { title: req.body.postTitle, content: req.body.postBody };
+  console.log(post);
 });
