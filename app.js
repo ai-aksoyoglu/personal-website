@@ -33,6 +33,7 @@ app.set('view engine', 'ejs');
 const items = ['Buy food', 'Cook', 'Eat :-)'];
 const workItems = [];
 let posts = [];
+let urlPostTitles = [];
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('Server started running on port 3000');
@@ -225,17 +226,19 @@ app.get('/blog-compose', function (req, res) {
 app.post('/blog-compose', function (req, res) {
   const post = { title: req.body.postTitle, content: req.body.postBody };
   posts.push(post);
+  urlPostTitles.push(_.kebabCase(post.title));
   res.redirect('/blog-home');
 });
 
 app.get('/posts/:postName', function (req, res) {
-  const requestedTitle = _.kebabCase(req.params.postName);
-  posts.forEach(function (post) {
-    const storedTitle = _.kebabCase(post.title);
-    if (requestedTitle === storedTitle) {
-      res.render('blog-post', { post: post });
-    } else {
-      res.redirect('/blog-home');
-    }
-  });
+  var requestedTitle = _.kebabCase(req.params.postName);
+  if (urlPostTitles.includes(requestedTitle)) {
+    posts.forEach(function (post) {
+      if (requestedTitle === _.kebabCase(post.title)) {
+        res.render('blog-post', { post: post });
+      }
+    });
+  } else {
+    res.redirect('/blog-home');
+  }
 });
