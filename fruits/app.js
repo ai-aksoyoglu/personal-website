@@ -41,3 +41,12 @@ Fruit.insertMany([kiwi, orange, banana], function (err) {
     console.log('Successfully added more fruits');
   }
 });
+
+// Read from the fruitsDB database
+Fruit.find(function (err, fruits) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(fruits);
+  }
+});
