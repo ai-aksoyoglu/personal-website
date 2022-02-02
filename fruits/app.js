@@ -30,12 +30,19 @@ async function run() {
       { name: 'Banana', score: 9, review: 'Very healthy' },
     ];
 
-    const result = await collection.insertMany(docs);
-    console.log(`${result.insertedCount} documents were inserted`);
+    const insertDocuments = await collection.insertMany(docs);
+    console.log(`${insertDocuments.insertedCount} documents were inserted`);
+
+    console.log(
+      `In the fruits collection, in the ${dbName} database, there are now:`
+    );
+    const findDocuments = await collection.find({}).forEach((fruits) => {
+      console.log(fruits.name);
+    });
   } finally {
     await client.close(function (err) {
       assert.equal(null, err);
-      console.log('Done.');
+      console.log('------------');
     });
   }
 }
