@@ -18,6 +18,27 @@ async function main() {
 
   // the following code examples can be pasted here...
 
+  // create a document to insert
+  const doc = [
+    {
+      name: 'Apple',
+      score: 8,
+      review: 'This fruit is great! An apple a day keeps the doctor away.',
+    },
+    {
+      name: 'Orange',
+      score: 6,
+      review: 'Maybe sour.',
+    },
+    {
+      name: 'Banana',
+      score: 9,
+      review: 'Very healthy',
+    },
+  ];
+  const result = await collection.insertMany(doc);
+  console.log(`${result.insertedCount} documents were inserted`);
+
   return 'done.';
 }
 
