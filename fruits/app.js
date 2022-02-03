@@ -47,6 +47,7 @@ Fruit.find(function (err, fruits) {
   if (err) {
     console.log(err);
   } else {
-    console.log(fruits);
+    //    console.log(fruits);
+    fruits.forEach((element) => console.log(element.name));
   }
 });
