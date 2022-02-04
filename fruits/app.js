@@ -7,7 +7,10 @@ const { Schema } = mongoose;
 
 // Defining the schema for fruits
 const fruitSchema = new Schema({
-  name: String, // String is shorthand for {type: String}
+  name: {
+    type: String,
+    required: [true, 'Please check your data entry, no name was specified'],
+  }, // String is shorthand for {type: String}
   rating: { type: Number, min: 1, max: 10 },
   review: String,
 });
