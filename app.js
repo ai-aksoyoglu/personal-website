@@ -2,8 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const https = require('https');
 const request = require('request');
-
-const date = require(__dirname + '/date.js');
+const mongoose = require('mongoose');
+/* without mongodb
+const date = require(__dirname + '/date.js');*/
 
 const _ = require('lodash');
 const homeStartingContent =
@@ -30,8 +31,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
+
+/* without mongodb
 const items = ['Buy food', 'Cook', 'Eat 🎉'];
-const workItems = [];
+const workItems = [];*/
 let posts = [];
 let urlPostTitles = [];
 
@@ -180,10 +183,48 @@ app.post('/newsletter-failure', function (req, res) {
   );
 });*/
 
+// With mongodb
+mongoose.connect('mongodb://localhost:27017/todolistDB');
+
+const { Schema } = mongoose;
+
+// Defining the schema for fruits
+const itemsSchema = new Schema({
+  name: {
+    type: String,
+    required: [true, 'No name was specified for this item'],
+  },
+});
+
+const Item = mongoose.model('Item', itemsSchema);
+const item1 = new Item({
+  name: 'Buy Food',
+});
+const item2 = new Item({
+  name: 'Cook',
+});
+const item3 = new Item({
+  name: 'Eat 🎉',
+});
+const defaultItems = [item1, item2, item3];
+Item.insertMany(defaultItems, function (err) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('Successfully added the 3 default items');
+  }
+});
+
 app.get('/todolist', function (req, res) {
-  /*const day = date.getDay();*/
-  const day = date.getDate();
-  res.render('list', { listTitle: day, listValue: day, newListItems: items });
+  /* without mongodb
+  const day = date.getDay();
+  const day = date.getDate();*/
+
+  res.render('list', {
+    listTitle: 'Today',
+    listValue: 'today',
+    newListItems: items,
+  });
 });
 
 app.post('/todolist', function (req, res) {
