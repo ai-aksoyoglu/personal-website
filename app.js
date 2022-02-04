@@ -183,7 +183,7 @@ app.post('/newsletter-failure', function (req, res) {
 app.get('/todolist', function (req, res) {
   /*const day = date.getDay();*/
   const day = date.getDate();
-  res.render('list', { listTitle: day, newListItems: items });
+  res.render('list', { listTitle: day, listValue: day, newListItems: items });
 });
 
 app.post('/todolist', function (req, res) {
