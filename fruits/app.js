@@ -54,3 +54,16 @@ Fruit.find(function (err, fruits) {
     fruits.forEach((element) => console.log(element.name));
   }
 });
+
+// Update from the fruitsDB database
+Fruit.updateOne(
+  { _id: '61fd472390d656e5a0948ee0' },
+  { name: 'Peach' },
+  function (err) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('Successfully update the name of the first entry');
+    }
+  }
+);
