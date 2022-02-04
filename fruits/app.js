@@ -68,10 +68,21 @@ Fruit.updateOne(
   }
 );
 
+/* delete one entry
 Fruit.deleteOne({ name: 'Peach' }, function (err) {
   if (err) {
     console.log(err);
   } else {
     console.log('Successfully delete the entry with name peach');
+  }
+});*/
+
+Person.deleteMany({ name: 'John' }, function (err) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(
+      'Successfully delete all the entries with name JOhn from the People collection inside fruitsDB'
+    );
   }
 });
