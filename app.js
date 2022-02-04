@@ -220,10 +220,18 @@ app.get('/todolist', function (req, res) {
   const day = date.getDay();
   const day = date.getDate();*/
 
-  res.render('list', {
-    listTitle: 'Today',
-    listValue: 'today',
-    newListItems: items,
+  Item.find(function (err, foundItems) {
+    if (err) {
+      console.log(err);
+    } else {
+      //    console.log(foundItems);
+      foundItems.forEach((element) => console.log(element.name));
+      res.render('list', {
+        listTitle: 'Today',
+        listValue: 'today',
+        newListItems: foundItems,
+      });
+    }
   });
 });
 
