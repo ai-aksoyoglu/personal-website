@@ -67,3 +67,11 @@ Fruit.updateOne(
     }
   }
 );
+
+Fruit.deleteOne({ name: 'Peach' }, function (err) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('Successfully delete the entry with name peach');
+  }
+});
