@@ -32,14 +32,29 @@ const pineapple = new Fruit({
   review: "Not everyone's cup of tea",
 });
 
-pineapple.save().then(() => console.log('A pineapple was added.'));
+const strawberry = new Fruit({
+  name: 'Strawberry',
+  rating: 5,
+  review: 'too sweet',
+});
 
-const person = new Person({
+pineapple.save().then(() => console.log('A pineapple was added.'));
+strawberry.save().then(() => console.log('A strawberry was added.'));
+
+const personAmy = new Person({
   name: 'Amy',
-  rating: 12,
+  age: 12,
   favouriteFruit: pineapple,
 });
-person.save().then(() => console.log('Amy was added.'));
+
+const personEmma = new Person({
+  name: 'Emma',
+  age: 20,
+  favouriteFruit: strawberry,
+});
+
+personAmy.save().then(() => console.log('Amy was added.'));
+personEmma.save().then(() => console.log('Emma was added.'));
 
 const apple = new Fruit({ name: 'Apple', rating: 7, review: 'Very healthy' });
 // Add more fruits
@@ -90,7 +105,7 @@ Fruit.deleteOne({ name: 'Peach' }, function (err) {
   }
 });*/
 
-// delete many
+/* delete many
 Person.deleteMany({ name: 'John' }, function (err) {
   if (err) {
     console.log(err);
@@ -99,4 +114,4 @@ Person.deleteMany({ name: 'John' }, function (err) {
       'Successfully delete all the entries with name John from the People collection inside fruitsDB'
     );
   }
-});
+});*/
