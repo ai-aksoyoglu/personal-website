@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
-const items = ['Buy food', 'Cook', 'Eat :-)'];
+const items = ['Buy food', 'Cook', 'Eat 🎉'];
 const workItems = [];
 let posts = [];
 let urlPostTitles = [];
@@ -188,7 +188,6 @@ app.get('/todolist', function (req, res) {
 
 app.post('/todolist', function (req, res) {
   const item = req.body.newItem;
-  console.log(req.body.list);
 
   if (req.body.list === 'work') {
     workItems.push(item);
