@@ -17,33 +17,46 @@ const fruitSchema = new Schema({
 
 const Fruit = mongoose.model('Fruit', fruitSchema);
 
-const apple = new Fruit({ name: 'Apple', rating: 7, review: 'Very healthy' });
-apple.save().then(() => console.log('A fruit was added.'));
-
 // Defining a new schema for people
 const personSchema = new Schema({
   name: String, // String is shorthand for {type: String}
   age: Number,
+  favouriteFruit: fruitSchema,
 });
 
 const Person = mongoose.model('Person', personSchema);
 
-const person = new Person({ name: 'John', rating: 37 });
-person.save().then(() => console.log('A person was added.'));
+const pineapple = new Fruit({
+  name: 'Pineapple',
+  rating: 9,
+  review: "Not everyone's cup of tea",
+});
 
+pineapple.save().then(() => console.log('A pineapple was added.'));
+
+const person = new Person({
+  name: 'Amy',
+  rating: 12,
+  favouriteFruit: pineapple,
+});
+person.save().then(() => console.log('Amy was added.'));
+
+const apple = new Fruit({ name: 'Apple', rating: 7, review: 'Very healthy' });
 // Add more fruits
 const kiwi = new Fruit({ name: 'Kiwi', rating: 10, review: 'Might be sour' });
 
 const orange = new Fruit({ name: 'Orange', rating: 4, review: 'A citric' });
 
 const banana = new Fruit({ name: 'Banana', rating: 3, review: 'Delicious' });
+
+/*
 Fruit.insertMany([kiwi, orange, banana], function (err) {
   if (err) {
     console.log(err);
   } else {
     console.log('Successfully added more fruits');
   }
-});
+});*/
 
 // Read from the fruitsDB database
 Fruit.find(function (err, fruits) {
@@ -55,7 +68,7 @@ Fruit.find(function (err, fruits) {
   }
 });
 
-// Update from the fruitsDB database
+/* Update from the fruitsDB database
 Fruit.updateOne(
   { _id: '61fd472390d656e5a0948ee0' },
   { name: 'Peach' },
@@ -66,7 +79,7 @@ Fruit.updateOne(
       console.log('Successfully update the name of the first entry');
     }
   }
-);
+);*/
 
 /* delete one entry
 Fruit.deleteOne({ name: 'Peach' }, function (err) {
@@ -77,12 +90,13 @@ Fruit.deleteOne({ name: 'Peach' }, function (err) {
   }
 });*/
 
+// delete many
 Person.deleteMany({ name: 'John' }, function (err) {
   if (err) {
     console.log(err);
   } else {
     console.log(
-      'Successfully delete all the entries with name JOhn from the People collection inside fruitsDB'
+      'Successfully delete all the entries with name John from the People collection inside fruitsDB'
     );
   }
 });
