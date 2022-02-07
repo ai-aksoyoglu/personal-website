@@ -288,7 +288,7 @@ app.post('/todolist/deleteItem', function (req, res) {
 });
 
 app.get('/:customListName', function (req, res) {
-  var customListName = req.params.customListName;
+  var customListName = _.capitalize(req.params.customListName);
 
   List.findOne({ name: customListName }, async function (err, foundList) {
     if (!err) {
