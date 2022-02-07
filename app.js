@@ -252,13 +252,15 @@ app.post('/todolist', function (req, res) {
     name: itemName,
   });
 
-  item.save();
-
-  if (req.body.list === 'work') {
-    workItems.push(item);
-    res.redirect('/work');
-  } else {
+  if (req.body.list === 'today') {
+    item.save();
     res.redirect('/todolist');
+  } else {
+    List.findOne({ name: req.body.list }, function (err, foundList) {
+      foundList.items.push(item);
+      foundList.save();
+      res.redirect('/' + req.body.list);
+    });
   }
 });
 
