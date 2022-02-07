@@ -264,20 +264,26 @@ app.post('/todolist', function (req, res) {
   }
 });
 
-app.post('/todolist/update', function (req, res) {
+app.post('/todolist/deleteItem', function (req, res) {
   const checkedItemId = req.body.checkbox;
 
-  Item.findByIdAndRemove(checkedItemId, function (err) {
-    if (!err) {
-      console.log('Successfully deleted the checked item');
-    }
-  });
-
-  if (req.body.list === 'work') {
-    workItems.push(item);
-    res.redirect('/work');
+  if (req.body.listCheckedOff === 'today') {
+    Item.findByIdAndRemove(checkedItemId, function (err) {
+      if (!err) {
+        console.log('Successfully deleted the checked item');
+        res.redirect('/todolist');
+      }
+    });
   } else {
-    res.redirect('/todolist');
+    List.findOneAndUpdate(
+      { name: req.body.listCheckedOff },
+      { $pull: { items: { _id: checkedItemId } } },
+      function (err, foundList) {
+        if (!err) {
+          res.redirect('/' + req.body.listCheckedOff);
+        }
+      }
+    );
   }
 });
 
