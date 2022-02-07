@@ -255,6 +255,23 @@ app.post('/todolist', function (req, res) {
   }
 });
 
+app.post('/todolist/updated', function (req, res) {
+  const checkedItemId = req.body.checkbox;
+
+  Item.findByIdAndRemove(checkedItemId, function (err) {
+    if (!err) {
+      console.log('Successfully deleted the checked item');
+    }
+  });
+
+  if (req.body.list === 'work') {
+    workItems.push(item);
+    res.redirect('/work');
+  } else {
+    res.redirect('/todolist');
+  }
+});
+
 app.get('/work', function (req, res) {
   res.render('list', {
     listTitle: 'Work List',
