@@ -239,13 +239,18 @@ app.get('/todolist', function (req, res) {
 });
 
 app.post('/todolist', function (req, res) {
-  const item = req.body.newItem;
+  const itemName = req.body.newItem;
+
+  const item = new Item({
+    name: itemName,
+  });
+
+  item.save();
 
   if (req.body.list === 'work') {
     workItems.push(item);
     res.redirect('/work');
   } else {
-    items.push(item);
     res.redirect('/todolist');
   }
 });
