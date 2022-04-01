@@ -48,7 +48,7 @@ app.listen(process.env.PORT || 3000, function () {
   console.log('Server started running on port 3000');
 });
 
-app.get('/', function (req, res) {
+app.get('/about', function (req, res) {
   res.render('about');
 });
 
@@ -297,36 +297,6 @@ app.post('/todolist/deleteItem', function (req, res) {
   }
 });
 
-app.get('/:customListName', function (req, res) {
-  var customListName = _.capitalize(req.params.customListName);
-
-  console.log(customListName);
-  if (customListName != 'Favicon.ico') {
-    List.findOne({ name: customListName }, async function (err, foundList) {
-      if (!err) {
-        if (!foundList) {
-          console.log(
-            'The ' + customListName + ' does not exist yet, it will be created.'
-          );
-          const list = new List({
-            name: customListName,
-            items: defaultItems,
-          });
-          await list.save();
-          res.redirect('/' + customListName);
-        } else {
-          console.log('The ' + foundList.name + ' list already exists!');
-          res.render('list', {
-            listTitle: foundList.name,
-            listValue: foundList.name,
-            newListItems: foundList.items,
-          });
-        }
-      }
-    });
-  }
-});
-
 app.get('/blog-home', function (req, res) {
   res.render('blog-home', { homeContent: homeStartingContent, posts: posts });
 });
@@ -360,5 +330,36 @@ app.get('/posts/:postName', function (req, res) {
     });
   } else {
     res.redirect('/blog-home');
+  }
+});
+
+// This should be the last get
+app.get('/:customListName', function (req, res) {
+  var customListName = _.capitalize(req.params.customListName);
+
+  console.log(customListName);
+  if (customListName != 'Favicon.ico') {
+    List.findOne({ name: customListName }, async function (err, foundList) {
+      if (!err) {
+        if (!foundList) {
+          console.log(
+            'The ' + customListName + ' does not exist yet, it will be created.'
+          );
+          const list = new List({
+            name: customListName,
+            items: defaultItems,
+          });
+          await list.save();
+          res.redirect('/' + customListName);
+        } else {
+          console.log('The ' + foundList.name + ' list already exists!');
+          res.render('list', {
+            listTitle: foundList.name,
+            listValue: foundList.name,
+            newListItems: foundList.items,
+          });
+        }
+      }
+    });
   }
 });
