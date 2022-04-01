@@ -34,7 +34,7 @@ run();*/
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
-app.use(favicon(__dirname + '/public/assets/favicon.ico'));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 
 app.set('view engine', 'ejs');
 
