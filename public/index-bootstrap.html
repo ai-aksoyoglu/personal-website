@@ -7,7 +7,7 @@
 
     <title>Alexandra/Bootstrap</title>
 
-    <link rel="icon" href="assets/favicon.ico" />
+    <link rel="icon" href="favicon.ico" />
 
     <!-- Google Fonts -->
     <link
@@ -118,13 +118,7 @@
     <section id="skills" class="white-section">
       <div class="container-fluid">
         <img
-          class="
-            img-skills-background
-            position-absolute
-            top-50
-            start-50
-            translate-middle
-          "
+          class="img-skills-background position-absolute top-50 start-50 translate-middle"
           src="assets/study_1.jpg"
           alt="study as skills background image"
           width="80%"
@@ -355,15 +349,15 @@
           Click & scroll for a surprise <i class="fas fa-gift"></i>
         </button>
         <script>
-          document.addEventListener("DOMContentLoaded", function () {
+          document.addEventListener('DOMContentLoaded', function () {
             function createParagraph() {
-              let para = document.createElement("p");
-              para.textContent = "You clicked the button!";
+              let para = document.createElement('p');
+              para.textContent = 'You clicked the button!';
               document.body.appendChild(para);
             }
-            const buttons = document.querySelectorAll(".btn-outline-success");
+            const buttons = document.querySelectorAll('.btn-outline-success');
             for (let i = 0; i < buttons.length; i++) {
-              buttons[i].addEventListener("click", createParagraph);
+              buttons[i].addEventListener('click', createParagraph);
             }
           });
         </script>
