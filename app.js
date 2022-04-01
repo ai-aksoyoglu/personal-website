@@ -114,11 +114,9 @@ app.post('/weather', function (req, res) {
     });
 });
 
-app.get('/newsletter-signup', function (req, res) {
-  res.sendFile(__dirname + '/newsletter-signup.html');
-});
+app.get('/newsletter-signup', (req, res) => res.render('newsletter-signup'));
 
-app.post('/newsletter-signup', function (req, res) {
+app.post('/newsletter-signup', async function (req, res) {
   const firstName = req.body.firstName;
   const lastName = req.body.lastName;
   const email = req.body.email;
@@ -131,7 +129,7 @@ app.post('/newsletter-signup', function (req, res) {
 
   const listId = process.env.mailchimp_listID;
 
-  async function run() {
+  try {
     const response = await mailchimp.lists.addListMember(listId, {
       email_address: subscribingUser.email,
       status: 'subscribed',
@@ -142,23 +140,22 @@ app.post('/newsletter-signup', function (req, res) {
     });
 
     //If all goes well logging the contact's id
-    res.sendFile(__dirname + '/newsletter-success.html');
+    res.render('newsletter-signup');
     console.log(
       "Successfully added contact as an audience member. The contact's id is" +
         response.id +
         '.'
     );
+  } catch (err) {
+    //Running the function and catching the errors (if any)
+    // ************************THIS IS THE CODE THAT NEEDS TO BE ADDED FOR THE NEXT LECTURE*************************
+    // So the catch statement is executed when there is an error so if anything goes wrong the code in the catch code is executed. In the catch block we're sending back the failure page. This means if anything goes wrong send the faliure page
+
+    res.redirect('/newsletter-failure');
   }
-
-  //Running the function and catching the errors (if any)
-  // ************************THIS IS THE CODE THAT NEEDS TO BE ADDED FOR THE NEXT LECTURE*************************
-  // So the catch statement is executed when there is an error so if anything goes wrong the code in the catch code is executed. In the catch block we're sending back the failure page. This means if anything goes wrong send the faliure page
-  run().catch((e) => res.sendFile(__dirname + '/newsletter-failure.html'));
 });
 
-app.post('/newsletter-failure', function (req, res) {
-  res.redirect('/newsletter-signup');
-});
+app.get('/newsletter-failure', (req, res) => res.render('newsletter-failure'));
 
 /*const url = "https://us20.api.mailchimp.com/3.0/lists/" + process.env.mailchimp_listID;
 
