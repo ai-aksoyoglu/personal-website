@@ -53,11 +53,9 @@ app.get("/about", function (req, res) {
   res.render("about");
 });
 
-/*__dirname = /home/alexandra/Desktop/_Web Development_/personal-website*/
+/*__dirname = /home/alexandra/Desktop/_Web Development_/limitless-crag-64507*/
 
-app.get("/bmi", function (req, res) {
-  res.sendFile(__dirname + "/bmi.html");
-});
+app.get("/bmi", (req, res) => res.render("bmi"));
 
 app.post("/bmi", function (req, res) {
   var weight = parseFloat(req.body.weight);
@@ -66,9 +64,7 @@ app.post("/bmi", function (req, res) {
   res.send("<h1>The corresponding BMI is " + result.toFixed(2) + ".</h1>");
 });
 
-app.get("/weather", function (req, res) {
-  res.sendFile(__dirname + "/weather.html");
-});
+app.get("/weather", (req, res) => res.render("weather"));
 
 app.post("/weather", function (req, res) {
   const query = req.body.cityName;
