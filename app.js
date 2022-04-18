@@ -195,7 +195,7 @@ mongoose.connect(
 
 const { Schema } = mongoose;
 
-// Defining the schema for fruits
+// Defining the schema for fruits/todolist
 const itemsSchema = new Schema({
   name: {
     type: String,
@@ -295,7 +295,17 @@ app.post("/todolist/deleteItem", function (req, res) {
 });
 
 app.get("/blog-home", function (req, res) {
-  res.render("blog-home", { homeContent: homeStartingContent, posts: posts });
+  Post.find(function (err, foundPosts) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(foundPosts);
+      res.render("blog-home", {
+        homeContent: homeStartingContent,
+        posts: posts,
+      });
+    }
+  });
 });
 
 app.get("/blog-about", function (req, res) {
@@ -306,14 +316,37 @@ app.get("/blog-contact", function (req, res) {
   res.render("blog-contact", { contactContent: contactContent });
 });
 
+const postsSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: [true, "No title was specified for this post"],
+  },
+  content: {
+    type: String,
+    required: [true, "No content was specified for this post"],
+  },
+  url: {
+    type: String,
+    required: [true, "No url was specified for this post"],
+  },
+});
+
+const Post = mongoose.model("Post", postsSchema);
+
 app.get("/blog-compose", function (req, res) {
   res.render("blog-compose", {});
 });
 
 app.post("/blog-compose", function (req, res) {
-  const post = { title: req.body.postTitle, content: req.body.postBody };
-  posts.push(post);
-  urlPostTitles.push(_.kebabCase(post.title));
+  const newPost = { title: req.body.postTitle, content: req.body.postBody };
+
+  const post = new Post({
+    title: newPost.title,
+    content: newPost.content,
+    url: _.kebabCase(newPost.title),
+  });
+
+  post.save();
   res.redirect("/blog-home");
 });
 
@@ -328,6 +361,10 @@ app.get("/posts/:postName", function (req, res) {
   } else {
     res.redirect("/blog-home");
   }
+
+  Post.findOne({ url: req.params.postName }, function (err, foundPost) {
+    res.render("blog-post", { post: foundPost });
+  });
 });
 
 // This should be the last get
