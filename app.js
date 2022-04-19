@@ -189,8 +189,11 @@ mongoose.connect('mongodb://localhost:27017/todolistDB');*/
 // With MongoDB Cloud Atlas
 const mongoDB_username = process.env.mongoDB_username;
 const mongoDB_password = process.env.mongoDB_password;
-mongoose.connect(
+const todolistDBconn = mongoose.createConnection(
   `mongodb+srv://${mongoDB_username}:${mongoDB_password}@cluster0.jrfbq.mongodb.net/todolistDB`
+);
+const blogDBconn = mongoose.createConnection(
+  `mongodb+srv://${mongoDB_username}:${mongoDB_password}@cluster0.jrfbq.mongodb.net/blogDB`
 );
 
 const { Schema } = mongoose;
@@ -203,7 +206,7 @@ const itemsSchema = new Schema({
   },
 });
 
-const Item = mongoose.model('Item', itemsSchema);
+const Item = todolistDBconn.model('Item', itemsSchema);
 const item1 = new Item({
   name: 'Buy Food',
 });
@@ -215,12 +218,12 @@ const item3 = new Item({
 });
 const defaultItems = [item1, item2, item3];
 
-const listSchema = new mongoose.Schema({
+const listSchema = new Schema({
   name: String,
   items: [itemsSchema],
 });
 
-const List = mongoose.model('List', listSchema);
+const List = todolistDBconn.model('List', listSchema);
 
 app.get('/todolist', function (req, res) {
   /* without mongodb
@@ -294,7 +297,7 @@ app.post('/todolist/deleteItem', function (req, res) {
   }
 });
 
-const postsSchema = new mongoose.Schema({
+const postsSchema = new Schema({
   title: {
     type: String,
     required: [true, 'No title was specified for this post'],
@@ -305,7 +308,7 @@ const postsSchema = new mongoose.Schema({
   },
 });
 
-const Post = mongoose.model('Post', postsSchema);
+const Post = blogDBconn.model('Post', postsSchema);
 
 app.get('/blog-home', function (req, res) {
   Post.find(function (err, foundPosts) {
@@ -345,8 +348,8 @@ app.post('/blog-compose', function (req, res) {
   res.redirect('/blog-home');
 });
 
-app.get('/post/:postName', function (req, res) {
-  Post.findOne({ _id: req.params.postName }, function (err, foundPost) {
+app.get('/post/:postId', function (req, res) {
+  Post.findOne({ _id: req.params.postId }, function (err, foundPost) {
     if (err) {
       console.log(err);
     } else {
