@@ -16,9 +16,6 @@
     "url": "https://github.com/ai-aksoyoglu/personal-website/issues"
   },
   "homepage": "https://github.com/ai-aksoyoglu/personal-website#readme",
-  "engines": {
-    "node": "16.13.2"
-  },
   "dependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.73",
     "body-parser": "^1.19.1",
