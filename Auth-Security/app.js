@@ -7,7 +7,6 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
-const LocalStrategy = require("passport-local");
 
 const app = express();
 
@@ -44,7 +43,7 @@ const AuthUsersDBconn = mongoose.createConnection(
 const { Schema } = mongoose;
 
 const passportUsersSchema = new Schema({
-  username: String,
+  email: String,
   password: String,
 });
 
@@ -102,7 +101,7 @@ app.post("/register", function (req, res) {
 
 app.post("/login", function (req, res) {
   const user = new passportUser({
-    username: req.body.username,
+    email: req.body.username,
     password: req.body.password,
   });
 
