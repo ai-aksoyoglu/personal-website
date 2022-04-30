@@ -47,6 +47,7 @@ const { Schema } = mongoose;
 const googleUsersSchema = new Schema({
   email: String,
   password: String,
+  googleId: String,
 });
 
 googleUsersSchema.plugin(passportLocalMongoose);
