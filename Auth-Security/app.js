@@ -44,20 +44,29 @@ const AuthUsersDBconn = mongoose.createConnection(
 
 const { Schema } = mongoose;
 
-const passportUsersSchema = new Schema({
+const googleUsersSchema = new Schema({
   email: String,
   password: String,
 });
 
-passportUsersSchema.plugin(passportLocalMongoose);
-passportUsersSchema.plugin(findOrCreate);
+googleUsersSchema.plugin(passportLocalMongoose);
+googleUsersSchema.plugin(findOrCreate);
 
-const passportUser = AuthUsersDBconn.model("passportUser", passportUsersSchema);
+const googleUser = AuthUsersDBconn.model("googleUser", googleUsersSchema);
 
-passport.use(passportUser.createStrategy());
+passport.use(googleUser.createStrategy());
 
-passport.serializeUser(passportUser.serializeUser());
-passport.deserializeUser(passportUser.deserializeUser());
+passport.serializeUser(function (user, done) {
+  //We can identify the user uniquely by the id,
+  //so we only serialize this into the session token.
+  done(null, user.id);
+});
+
+passport.deserializeUser(function (id, done) {
+  googleUser.findById(id, function (err, user) {
+    done(err, user);
+  });
+});
 
 passport.use(
   new GoogleStrategy(
@@ -67,7 +76,8 @@ passport.use(
       callbackURL: "http://localhost:3000/auth/google/secrets",
     },
     function (accessToken, refreshToken, profile, cb) {
-      User.findOrCreate({ googleId: profile.id }, function (err, user) {
+      console.log(profile);
+      googleUser.findOrCreate({ googleId: profile.id }, function (err, user) {
         return cb(err, user);
       });
     }
@@ -81,6 +91,15 @@ app.get("/", function (req, res) {
 app.get(
   "/auth/google",
   passport.authenticate("google", { scope: ["profile"] })
+);
+
+app.get(
+  "/auth/google/secrets",
+  passport.authenticate("google", { failureRedirect: "/login" }),
+  function (req, res) {
+    // Successful authentication, redirect to the secrets page.
+    res.redirect("/secrets");
+  }
 );
 
 app.get("/login", function (req, res) {
@@ -105,10 +124,10 @@ app.get("/logout", function (req, res) {
 });
 
 app.post("/register", function (req, res) {
-  passportUser.register(
+  googleUser.register(
     { username: req.body.username },
     req.body.password,
-    function (err, passportUser) {
+    function (err, googleUser) {
       if (err) {
         console.log(err);
         res.redirect("/register");
@@ -123,7 +142,7 @@ app.post("/register", function (req, res) {
 });
 
 app.post("/login", function (req, res) {
-  const user = new passportUser({
+  const user = new googleUser({
     email: req.body.username,
     password: req.body.password,
   });
