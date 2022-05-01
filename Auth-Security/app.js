@@ -45,7 +45,7 @@ const AuthUsersDBconn = mongoose.createConnection(
 const { Schema } = mongoose;
 
 const googleUsersSchema = new Schema({
-  email: String,
+  username: String,
   password: String,
   googleId: String,
   secret: String,
@@ -183,7 +183,7 @@ app.post("/register", function (req, res) {
 
 app.post("/login", function (req, res) {
   const user = new googleUser({
-    email: req.body.username,
+    username: req.body.username,
     password: req.body.password,
   });
 
