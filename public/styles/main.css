@@ -1,12 +1,11 @@
 /***************TAG SELECTORS***************/
 body {
+  color: #40514e;
   margin: 0;
   text-align: center;
   font-family: 'Merriweather', serif;
 }
-div {
-  position: relative;
-}
+
 h1 {
   margin-top: 50px auto 0 auto;
   color: rgb(12, 12, 77);
@@ -14,6 +13,7 @@ h1 {
   font-size: 3rem;
   line-height: 1.5;
 }
+
 h2 {
   color: rgb(56, 76, 187);
   font-family: 'Montserrat', sans-serif;
@@ -21,6 +21,7 @@ h2 {
   font-weight: normal;
   padding-bottom: 10px;
 }
+
 h3 {
   color: #11999e;
   font-family: 'Montserrat', sans-serif;
@@ -40,15 +41,19 @@ hr {
 a {
   color: #285497;
   font-family: 'Montserrat', sans-serif;
-  margin: 10px 20px;
+  margin: 20px;
   text-decoration: none;
 }
 
 /***************CLASS SELECTORS***************/
 
 .container-fluid {
-  padding: 3% 15%;
-  background-image: url('assets/study_1.jpg');
+  padding: 15% 15%;
+  background-image: url('../assets/study_1.jpg');
+  background-size: cover; /* or 'contain', depending on your preference */
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: relative;
 }
 
 .top-description {
@@ -61,7 +66,6 @@ a {
 }
 
 .middle {
-  background-color: #bdbdbd;
   margin: 100px 0;
 }
 
@@ -105,9 +109,16 @@ a {
   padding: 20px 0 20px;
 }
 
-.contact-message {
-  width: 50%;
+.contact-me {
   margin: 40px auto 60px auto;
+  padding: 20px;
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap; /* Wrap buttons to the next line if they don't fit */
+  justify-content: center; /* Center the buttons horizontally */
+  margin-top: 20px; /* Add margin to separate buttons from content */
 }
 
 .btn {
@@ -124,8 +135,8 @@ a {
   color: #ffffff;
   font-size: 20px;
   padding: 10px 20px 10px 20px;
-  margin: 10px 20px;
   text-decoration: none;
+  margin: 10px;
 }
 
 .btn:hover {
@@ -155,4 +166,24 @@ a {
 /***************ID SELECTORS***************/
 #title {
   background-color: rgb(33, 95, 33);
+}
+
+/***************Media queries for different screen sizes***************/
+
+@media (max-width: 767px) {
+  .container-fluid {
+    background-size: cover;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container-fluid {
+    background-size: cover; /* Adjust as needed */
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-fluid {
+    background-size: cover;
+  }
 }
