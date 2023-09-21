@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "This is my personal website project.",
   "main": "app.js",
+  "type": "module",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon src/app.js"
   },
   "repository": {
     "type": "git",
