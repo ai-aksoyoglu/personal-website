@@ -1,4 +1,11 @@
-// index.js
-import { isValidListName } from './todo.js'; // Use the .js extension
+import { handleGet, handlePostAddItem, handlePostDeleteItem } from './todo.js'; // Use the .js extension
+import { errorHandler } from './errorHandler.js';
+import { runInitialization } from './initializeMongoDBLists.js';
 
-export { isValidListName };
+export {
+  handleGet,
+  handlePostAddItem,
+  handlePostDeleteItem,
+  errorHandler,
+  runInitialization,
+};

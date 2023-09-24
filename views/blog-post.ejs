@@ -2,5 +2,10 @@
 
 <h1><%=post.title%></post></h1>
 <p><%=post.content%></p>
+<a href="/blog/home">Go Back</a> <br />
+<a href="/blog/<%=post._id%>/edit">Edit</a> <br />
+<form action="/blog/<%=post._id%>/delete" method="POST" style="display:inline;">
+  <button type="submit">Delete</button>
+</form>
 
 <%- include("partials/blog-footer"); -%>

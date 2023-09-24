@@ -1,10 +1,73 @@
-<header>
-  <div class="container-fluid">
-    <p class="top-description">
-      <h1><em>Alexandra Irina Aksoyoglu</em></h1>
-    </p>
+<header class="container-fluid d-flex flex-wrap justify-content-center py-3">
+  <a
+    href="/"
+    class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+  >
+    <h1><em>Alexandra Irina Aksoyoglu</em></h1>
+  </a>
 
-  </div>
-
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a href="#" class="nav-link active" aria-current="page">Home</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a
+        class="nav-link dropdown-toggle"
+        href="#"
+        id="navbarDropdown"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        ToDo List
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li>
+          <a class="dropdown-item" href="/todo/today"
+            ><i class="far fa-calendar-alt"></i> Today</a
+          >
+        </li>
+        <li>
+          <a class="dropdown-item" href="/todo/work">
+            <i class="far fa-clone"></i> Work</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li class="nav-item"><a href="about">About</a></li>
+    <li class="nav-item"><a href="weather">Weather Report</a></li>
+    <li class="nav-item"><a href="bmi">BMI calculator</a></li>
+    <li class="nav-item dropdown">
+      <a
+        class="nav-link dropdown-toggle"
+        href="#"
+        id="gameDropdown"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Play a game
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="gameDropdown">
+        <li>
+          <a class="dropdown-item" href="dice">
+            <i class="fas fa-dice"></i> Dice
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item" href="drums">
+            <i class="fas fa-drum"></i> Drums
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item" href="simon"
+            ><i class="fas fa-gamepad"></i> Simon</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li class="nav-item"><a href="blog/home">Blog</a></li>
+    <li class="nav-item"><a href="newsletter/signup">Newsletter Signup</a></li>
+    <li class="nav-item"><a href="contact">Contact</a></li>
+  </ul>
 </header>
-
