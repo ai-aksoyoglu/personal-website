@@ -8,7 +8,6 @@ import { fileURLToPath } from 'url';
 import { errorHandler } from './helpers/index.js';
 import {
   homepage,
-  about,
   blog,
   bmi,
   contact,
@@ -41,7 +40,6 @@ app.use(favicon(path.join(publicDir, 'favicon.ico')));
 app.set('view engine', 'ejs');
 
 app.use('/', homepage);
-app.use('/about', about);
 app.use('/blog', blog);
 app.use('/bmi', bmi);
 app.use('/contact', contact);

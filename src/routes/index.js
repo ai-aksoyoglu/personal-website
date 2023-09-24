@@ -1,6 +1,5 @@
 // ./src/routes/index.js
 import homepage from './homepage.js';
-import about from './about.js';
 import blog from './blog.js';
 import bmi from './bmi.js';
 import contact from './contact.js';
@@ -13,7 +12,6 @@ import weather from './weather.js';
 
 export {
   homepage,
-  about,
   blog,
   bmi,
   contact,

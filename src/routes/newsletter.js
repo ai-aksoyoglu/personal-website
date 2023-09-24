@@ -39,7 +39,8 @@ newsletter.post('/signup', async function (req, res) {
     });
 
     //If all goes well logging the contact's id
-    res.render('newsletter-signup');
+    //res.render('newsletter-signup');
+    res.redirect('/newsletter/success');
     console.log(
       "Successfully added contact as an audience member. The contact's id is" +
         response.id +
@@ -53,6 +54,8 @@ newsletter.post('/signup', async function (req, res) {
     res.redirect('/newsletter-failure');
   }
 });
+
+newsletter.get('/success', (req, res) => res.render('newsletter-success'));
 
 newsletter.get('/failure', (req, res) => res.render('newsletter-failure'));
 

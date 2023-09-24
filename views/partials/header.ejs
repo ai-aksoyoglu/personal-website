@@ -1,73 +1,90 @@
-<header class="container-fluid d-flex flex-wrap justify-content-center py-3">
-  <a
-    href="/"
-    class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
-  >
-    <h1><em>Alexandra Irina Aksoyoglu</em></h1>
-  </a>
-
-  <ul class="nav nav-pills">
-    <li class="nav-item">
-      <a href="#" class="nav-link active" aria-current="page">Home</a>
-    </li>
-    <li class="nav-item dropdown">
-      <a
-        class="nav-link dropdown-toggle"
-        href="#"
-        id="navbarDropdown"
-        role="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        ToDo List
-      </a>
-      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <li>
-          <a class="dropdown-item" href="/todo/today"
+<header class="container">
+  <div class="py-3">
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          ToDo List
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="nav-link" href="/todo/today"
             ><i class="far fa-calendar-alt"></i> Today</a
           >
-        </li>
-        <li>
-          <a class="dropdown-item" href="/todo/work">
-            <i class="far fa-clone"></i> Work</a
+          <a class="nav-link" href="/todo/work"
+            ><i class="far fa-clone"></i> Work</a
           >
-        </li>
-      </ul>
-    </li>
-    <li class="nav-item"><a href="about">About</a></li>
-    <li class="nav-item"><a href="weather">Weather Report</a></li>
-    <li class="nav-item"><a href="bmi">BMI calculator</a></li>
-    <li class="nav-item dropdown">
-      <a
-        class="nav-link dropdown-toggle"
-        href="#"
-        id="gameDropdown"
-        role="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        Play a game
-      </a>
-      <ul class="dropdown-menu" aria-labelledby="gameDropdown">
-        <li>
-          <a class="dropdown-item" href="dice">
-            <i class="fas fa-dice"></i> Dice
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item" href="drums">
-            <i class="fas fa-drum"></i> Drums
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item" href="simon"
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/weather">Weather Report</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/bmi">BMI calculator</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Play a game
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="nav-link" href="/dice"><i class="fas fa-dice"></i> Dice</a>
+          <a class="nav-link" href="/drums"
+            ><i class="fas fa-drum"></i> Drums</a
+          >
+          <a class="nav-link" href="/simon"
             ><i class="fas fa-gamepad"></i> Simon</a
           >
-        </li>
-      </ul>
-    </li>
-    <li class="nav-item"><a href="blog/home">Blog</a></li>
-    <li class="nav-item"><a href="newsletter/signup">Newsletter Signup</a></li>
-    <li class="nav-item"><a href="contact">Contact</a></li>
-  </ul>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Blog
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="nav-link" href="/blog/home"
+            ><i class="fas fa-dice"></i> Home</a
+          >
+          <a class="nav-link" href="/blog/compose"
+            ><i class="fas fa-drum"></i> Compose</a
+          >
+          <a class="nav-link" href="/blog/about"
+            ><i class="fas fa-gamepad"></i> About us</a
+          >
+          <a class="nav-link" href="/blog/contact"
+            ><i class="fas fa-gamepad"></i> Contact us</a
+          >
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/newsletter/signup">Newsletter Signup</a>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+    </ul>
+  </div>
 </header>

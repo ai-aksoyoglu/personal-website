@@ -1,16 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <title>Weather</title>
-    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster"
-      rel="stylesheet"
-    />
+    <%- include('partials/head') %>
   </head>
   <body>
-    <div class="container">
+    <%- include('partials/header') %>
+    <main class="container">
       <h1>Weather Report</h1>
       <form action="/weather" method="post">
         <lable for="cityInput">City: </lable>
@@ -20,6 +15,7 @@
           Check the weather there
         </button>
       </form>
-    </div>
+    </main>
+    <%- include('partials/footer') %> <%- include('partials/scripts') %>
   </body>
 </html>

@@ -23,17 +23,10 @@ const postsSchema = new Schema({
 
 const Post = blogDBconn.model('Post', postsSchema);
 
-const staticContents = {
-  homeStartingContent: 'Lacus vel adipiscing.',
-  aboutContent: 'Hac dui.',
-  contactContent: 'Scelerisque semper viverra nam libero.',
-};
-
 blog.get('/home', async (req, res) => {
   try {
     const foundPosts = await Post.find();
     res.render('blog-home', {
-      homeContent: staticContents.homeStartingContent,
       posts: foundPosts,
     });
   } catch (err) {
@@ -42,12 +35,8 @@ blog.get('/home', async (req, res) => {
   }
 });
 
-blog.get('/about', (req, res) =>
-  res.render('blog-about', { aboutContent: staticContents.aboutContent })
-);
-blog.get('/contact', (req, res) =>
-  res.render('blog-contact', { contactContent: staticContents.contactContent })
-);
+blog.get('/about', (req, res) => res.render('blog-about'));
+blog.get('/contact', (req, res) => res.render('blog-contact'));
 blog.get('/compose', (req, res) =>
   res.render('blog-compose', { isEditing: false, post: null })
 );
