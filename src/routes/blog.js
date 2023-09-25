@@ -1,7 +1,9 @@
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-import { Router } from 'express';
+import express from 'express';
 dotenv.config();
+
+const { Router } = express;
 const blog = Router();
 
 const { mongoDB_username, mongoDB_password } = process.env;
@@ -35,8 +37,6 @@ blog.get('/home', async (req, res) => {
   }
 });
 
-blog.get('/about', (req, res) => res.render('blog-about'));
-blog.get('/contact', (req, res) => res.render('blog-contact'));
 blog.get('/compose', (req, res) =>
   res.render('blog-compose', { isEditing: false, post: null })
 );

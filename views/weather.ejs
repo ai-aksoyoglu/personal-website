@@ -6,15 +6,43 @@
   <body>
     <%- include('partials/header') %>
     <main class="container">
+      <% if (typeof weatherDescription !== 'undefined' && typeof imageURL !==
+      'undefined' && typeof cityName !== 'undefined' && typeof temp !==
+      'undefined') { %>
+      <h1>The temperature in <%= cityName %> is now <%= temp %>° Celsius.</h1>
+      <h2>
+        <img src="<%= imageURL %>" alt="Weather Icon" /><%= weatherDescription
+        %>
+      </h2>
+      <br />
+
+      <form action="/weather" method="post">
+        <h2>Somewhere else?</h2>
+        <input
+          id="cityInput"
+          type="text"
+          name="cityName"
+          placeholder="City name"
+          required
+        />
+        <button class="btn btn-primary" type="submit" name="">Check</button>
+      </form>
+
+      <% } else {%>
       <h1>Weather Report</h1>
       <form action="/weather" method="post">
-        <lable for="cityInput">City: </lable>
-        <input id="cityInput" type="text" name="cityName" placeholder="" />
-        <br />
-        <button type="submit" name="submit" class="btn">
-          Check the weather there
-        </button>
+        <h2 class="mb-3">
+          <input
+            id="cityInput"
+            type="text"
+            name="cityName"
+            placeholder="City name"
+            required
+          />
+          <button class="btn btn-primary" type="submit" name="">Check</button>
+        </h2>
       </form>
+      <% }%>
     </main>
     <%- include('partials/footer') %> <%- include('partials/scripts') %>
   </body>

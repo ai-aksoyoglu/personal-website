@@ -1,9 +1,11 @@
-import { Router } from 'express';
+import express from 'express';
 import {
   handleGet,
   handlePostAddItem,
   handlePostDeleteItem,
 } from '../helpers/index.js';
+
+const { Router } = express;
 const today = Router();
 const work = Router();
 

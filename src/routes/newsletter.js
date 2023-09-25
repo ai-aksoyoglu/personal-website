@@ -1,5 +1,7 @@
 import mailchimp from '@mailchimp/mailchimp_marketing';
-import { Router } from 'express';
+import express from 'express';
+
+const { Router } = express;
 const newsletter = Router();
 
 mailchimp.setConfig({

@@ -1,36 +1,51 @@
-<%- include("partials/blog-header"); -%>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/head') %>
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <main class="container">
+      <div class="container justify-content-center">
 
-<h1><%= isEditing ? "Edit" : "Compose" %></h1>
+        <h1>
+          <%= isEditing ? "✍️ Would you like to edit this post?" : "✍️ What is on your mind?" %>
+        </h1>
 
-<form
-  class=""
-  action="<%= isEditing ? '/blog/' + post._id + '/update' : '/blog/compose' %>"
-  method="post"
->
-  <div class="form-group">
-    <label>Title</label>
-    <input
-      class="form-control"
-      type="text"
-      name="postTitle"
-      value="<%= post ? post.title : '' %>"
-    />
+        <form
+          class=""
+          action="<%= isEditing ? '/blog/' + post._id + '/update' : '/blog/compose' %>"
+          method="post"
+        >
 
-    <label>Post</label>
-    <textarea class="form-control" name="postBody" cols="30" rows="5">
-<%= post ? post.content : '' %></textarea
-    >
-  </div>
-  <button class="btn btn-primary" type="submit" name="" value="">
-    <%= isEditing ? "Update" : "Publish" %>
-  </button>
-  <button
-    class="btn btn-secondary"
-    type="button"
-    onclick="location.href='/blog/home'"
-  >
-    Cancel
-  </button>
-</form>
+          <div class="mb-3 form-group">
+            <input
+              class="mb-3 form-control"
+              type="text"
+              name="postTitle"
+              placeholder="Give this post a title"
+              value="<%= post ? post.title : '' %>"
+            />
 
-<%- include("partials/blog-footer"); -%>
+            <textarea class="form-control" name="postBody" cols="30" rows="5" placeholder="Jot down your thoughts..." ><%= post ? post.content : '' %></textarea>
+
+          </div>
+
+          <button class="btn btn-primary" type="submit" name="" value="">
+            <%= isEditing ? "Update" : "Publish" %>
+          </button>
+
+          <button
+            class="btn btn-secondary"
+            type="button"
+            onclick="location.href='/blog/home'"
+          >
+            Cancel
+          </button>
+
+        </form>
+      </div>
+    </main>
+      <%- include('partials/footer') %> <%- include('partials/scripts') %>
+  </body>
+</html>

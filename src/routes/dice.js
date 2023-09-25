@@ -1,5 +1,6 @@
-import { Router } from 'express';
+import express from 'express';
 
+const { Router } = express;
 const dice = Router();
 
 dice.get('/', (req, res) => {

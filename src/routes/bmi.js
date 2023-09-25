@@ -1,4 +1,6 @@
-import { Router } from 'express';
+import express from 'express';
+
+const { Router } = express;
 const bmi = Router();
 
 bmi.get('/', (req, res) => res.render('bmi'));

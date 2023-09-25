@@ -1,4 +1,6 @@
-import { Router } from 'express';
+import express from 'express';
+
+const { Router } = express;
 const contact = Router();
 
 contact.get('/', function (req, res) {
