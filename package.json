@@ -5,7 +5,7 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon --delay 2 src/app.js"
+    "start": "nodemon --delay 2 --exec \"node --trace-deprecation\" src/app.js"
   },
   "repository": {
     "type": "git",

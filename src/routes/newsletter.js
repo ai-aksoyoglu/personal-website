@@ -5,7 +5,7 @@ const { Router } = express;
 const newsletter = Router();
 
 mailchimp.setConfig({
-  apiKey: process.env.mailchimp_apiKey,
+  apiKey: process.env.MAILCHIMP_APIKEY,
   server: 'us20',
 });
 /*check if mailchimp works successfully (api call)
@@ -28,7 +28,7 @@ newsletter.post('/signup', async function (req, res) {
     email: email,
   };
 
-  const listId = process.env.mailchimp_listID;
+  const listId = process.env.MAILCHIMP_LISTID;
 
   try {
     const response = await mailchimp.lists.addListMember(listId, {
@@ -61,11 +61,11 @@ newsletter.get('/success', (req, res) => res.render('newsletter-success'));
 
 newsletter.get('/failure', (req, res) => res.render('newsletter-failure'));
 
-/*const url = "https://us20.api.mailchimp.com/3.0/lists/" + process.env.mailchimp_listID;
+/*const url = "https://us20.api.mailchimp.com/3.0/lists/" + process.env.MAILCHIMP_LISTID;
 
   const options = {
     method: "POST",
-    auth: "ai.aksoyoglu:process.env.mailchimp_apiKey",
+    auth: "ai.aksoyoglu:process.env.MAILCHIMP_APIKEY",
   };
 
   const request = https.request(url, options, function (response) {
@@ -91,6 +91,7 @@ newsletter.get('/failure', (req, res) => res.render('newsletter-failure'));
 });
 
 // With mongodb
+mongoose.set('strictQuery', false);
 mongoose.connect('mongodb://localhost:27017/todolistDB');*/
 
 export default newsletter;

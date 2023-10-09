@@ -6,9 +6,10 @@ dotenv.config();
 const { Router } = express;
 const blog = Router();
 
-const { mongoDB_username, mongoDB_password } = process.env;
+const { MONGODB_USERNAME: username, MONGODB_PASSWORD: password } = process.env;
+mongoose.set('strictQuery', false);
 const blogDBconn = mongoose.createConnection(
-  `mongodb+srv://${mongoDB_username}:${mongoDB_password}@cluster0.jrfbq.mongodb.net/blogDB`,
+  `mongodb+srv://${username}:${password}@cluster0.jrfbq.mongodb.net/blogDB`,
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
 const { Schema } = mongoose;
