@@ -1,4 +1,4 @@
-import { List, Item, defaultItems } from './models/mongoDB.js';
+import { List } from './models/mongoDB.js';
 
 export async function handleGet(listName, listTitle, req, res, next) {
   try {

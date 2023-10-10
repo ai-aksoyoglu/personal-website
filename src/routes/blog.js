@@ -1,30 +1,9 @@
-import dotenv from 'dotenv';
-import mongoose from 'mongoose';
 import express from 'express';
-dotenv.config();
+
+import { Post } from '../../server/helpers/models/mongoDB.js';
 
 const { Router } = express;
 const blog = Router();
-
-const { MONGODB_USERNAME: username, MONGODB_PASSWORD: password } = process.env;
-mongoose.set('strictQuery', false);
-const blogDBconn = mongoose.createConnection(
-  `mongodb+srv://${username}:${password}@cluster0.jrfbq.mongodb.net/blogDB`,
-  { useNewUrlParser: true, useUnifiedTopology: true }
-);
-const { Schema } = mongoose;
-const postsSchema = new Schema({
-  title: {
-    type: String,
-    required: [true, 'Title is required.'],
-  },
-  content: {
-    type: String,
-    required: [true, 'Content is required.'],
-  },
-});
-
-const Post = blogDBconn.model('Post', postsSchema);
 
 blog.get('/home', async (req, res) => {
   try {

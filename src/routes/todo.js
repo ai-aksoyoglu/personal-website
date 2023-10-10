@@ -3,7 +3,7 @@ import {
   handleGet,
   handlePostAddItem,
   handlePostDeleteItem,
-} from '../helpers/index.js';
+} from '../../server/helpers/index.js';
 
 const { Router } = express;
 const today = Router();
