@@ -1,17 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <title>Calculator</title>
-    <link rel="stylesheet" type="text/css" href="css/styles.css" />
-    <link rel="icon" href="favicon.ico" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster"
-      rel="stylesheet"
-    />
+    <%- include('partials/head') %>
   </head>
   <body>
-    <div class="container">
+    <%- include('partials/header') %>
+    <main class="container">
       <h1>Let's calculate the Body Mass Index (BMI)!</h1>
       <form action="/bmi" method="post">
         <input type="text" name="weight" placeholder="weight (kg)" />
@@ -19,6 +13,7 @@
         <br />
         <button type="submit" name="submit" class="btn">Calculate BMI</button>
       </form>
-    </div>
+    </main>
+    <%- include('partials/footer') %> <%- include('partials/scripts') %>
   </body>
 </html>

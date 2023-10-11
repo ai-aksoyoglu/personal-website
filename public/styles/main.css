@@ -1,0 +1,110 @@
+body {
+  color: #0c0c4d;
+  text-align: center;
+  font-family: 'Merriweather', serif;
+  background-image: url('../assets/sky.jpg');
+  background-size: cover; /* Ensures your image covers the entire element */
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: relative;
+  margin: 2rem;
+  min-height: 100vh; /* Set minimum height to 100% of the viewport height */
+  box-sizing: border-box; /* Include padding and border in element's content */
+}
+
+body > div {
+  min-height: 100%;
+}
+
+p {
+  padding: 0rem 3rem;
+}
+
+h1 {
+  margin: 1rem auto 0; /* or margin-top: 20px;*/
+  color: #0c0c4d;
+  font-family: 'Sacramento', cursive;
+  font-size: 3rem;
+  line-height: 1.5;
+  padding: 3rem;
+}
+
+h2 {
+  padding: 0 3rem;
+}
+
+header {
+  color: #171515;
+  font-size: 1.25rem;
+}
+
+a {
+  color: #171515;
+}
+
+a:hover {
+  color: #0000ee;
+}
+
+header ul {
+  padding: 0;
+}
+
+header ul li {
+  padding: 0.25rem;
+}
+
+.dropdown-menu.show {
+  display: flow;
+  border: none;
+  border-radius: 15%;
+  background-color: hsla(179, 100%, 50%, 0.1);
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  padding: 40px 15px;
+}
+
+footer {
+  color: #171515;
+}
+
+.links-container {
+  margin-bottom: 10px;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.top {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.middle {
+  margin-bottom: -1px;
+  border-radius: 0;
+}
+.bottom {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}

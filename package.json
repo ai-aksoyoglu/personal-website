@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "This is my personal website project.",
   "main": "app.js",
+  "type": "module",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon --delay 2 --exec \"node --trace-deprecation\" src/app.js"
   },
   "repository": {
     "type": "git",
@@ -18,16 +19,12 @@
   "homepage": "https://github.com/ai-aksoyoglu/personal-website#readme",
   "dependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.73",
-    "body-parser": "^1.19.1",
     "dotenv": "^16.0.0",
     "ejs": "^3.0.2",
     "express": "^4.17.2",
     "https": "^1.0.0",
     "jquery": "^3.6.0",
-    "jsdom": "^19.0.0",
-    "lodash": "^4.17.11",
     "mongoose": "^6.2.0",
-    "request": "^2.88.2",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
