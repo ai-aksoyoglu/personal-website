@@ -1,14 +1,10 @@
-import express from 'express';
 import { get } from 'https';
 
-const { Router } = express;
-const weather = Router();
+export const renderWeatherPage = (req, res) => res.render('weather');
 
-weather.get('/', (req, res) => res.render('weather'));
-
-weather.post('/', function (req, res) {
+export const getWeather = (req, res) => {
   const query = req.body.cityName;
-  const apiKey = 'bbfc773fa75427fe40a14807a7863b2a';
+  const apiKey = 'bbfc773fa75427fe40a14807a7863b2a'; // Consider storing API keys in environment variables for security!
   const units = 'metric';
   const url =
     'https://api.openweathermap.org/data/2.5/weather?q=' +
@@ -17,11 +13,12 @@ weather.post('/', function (req, res) {
     apiKey +
     '&units=' +
     units;
+
   get(url, (response) => {
     console.log('statusCode:', response.statusCode);
     console.log('headers:', response.headers);
 
-    response.on('data', function (data) {
+    response.on('data', (data) => {
       const weatherData = JSON.parse(data);
       const temp = weatherData.main.temp;
       const weatherDescription = weatherData.weather[0].description;
@@ -39,6 +36,4 @@ weather.post('/', function (req, res) {
   }).on('error', (e) => {
     console.error(e);
   });
-});
-
-export default weather;
+};

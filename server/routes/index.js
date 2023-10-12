@@ -1,4 +1,3 @@
-// ./src/routes/index.js
 import homepage from './homepage.js';
 import blog from './blog.js';
 import bmi from './bmi.js';

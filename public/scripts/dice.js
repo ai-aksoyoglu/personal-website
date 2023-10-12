@@ -1,44 +1,50 @@
-$('.dice-roll').click(function () {
-  var player1 = 1 + Math.floor(Math.random() * 5);
-  var player2 = 1 + Math.floor(Math.random() * 5);
-
-  if (player1 > player2) {
-    $('.player1').attr('src', 'assets/dice/dice' + player1 + '.png');
-    $('.player2').attr('src', 'assets/dice/dice' + player2 + '.png');
-    $('h1').html('🚩 Player 1');
-    newscore = +localStorage.getItem('scorePlayer1');
-    localStorage.setItem('scorePlayer1', newscore + 1);
-  } else if (player2 > player1) {
-    $('.player1').attr('src', 'assets/dice/dice' + player1 + '.png');
-    $('.player2').attr('src', 'assets/dice/dice' + player2 + '.png');
-    $('h1').html('Player 2 🚩');
-    newscore = +localStorage.getItem('scorePlayer2');
-    localStorage.setItem('scorePlayer2', newscore + 1);
-  } else {
-    $('.player1').attr('src', 'assets/dice/dice' + player1 + '.png');
-    $('.player2').attr('src', 'assets/dice/dice' + player2 + '.png');
-    $('h1').html("It's a draw!");
+$(document).ready(function () {
+  // Initial scores setup
+  if (!localStorage.getItem('scorePlayer1')) {
+    localStorage.setItem('scorePlayer1', 0);
   }
-  $('.score').html(
-    'Player 1 : Player 2 <br>' +
-      localStorage.getItem('scorePlayer1') +
-      ' : ' +
-      localStorage.getItem('scorePlayer2')
-  );
-  $('button').html('Try again!');
+
+  if (!localStorage.getItem('scorePlayer2')) {
+    localStorage.setItem('scorePlayer2', 0);
+  }
+
+  updateScoreDisplay();
+
+  $('.dice-roll').click(function () {
+    var player1 = 1 + Math.floor(Math.random() * 6);
+    var player2 = 1 + Math.floor(Math.random() * 6);
+
+    // Update the dice images (removing the repetitive code)
+    $('.player1').attr('src', '../assets/dice/dice' + player1 + '.png');
+    $('.player2').attr('src', '../assets/dice/dice' + player2 + '.png');
+
+    var newscore;
+
+    if (player1 > player2) {
+      $('h1').html('🚩 Player 1');
+      newscore = +localStorage.getItem('scorePlayer1');
+      localStorage.setItem('scorePlayer1', newscore + 1);
+    } else if (player2 > player1) {
+      $('h1').html('Player 2 🚩');
+      newscore = +localStorage.getItem('scorePlayer2');
+      localStorage.setItem('scorePlayer2', newscore + 1);
+    } else {
+      $('h1').html("It's a draw!");
+    }
+
+    updateScoreDisplay();
+    $('button').html('Try again!');
+  });
+
+  function updateScoreDisplay() {
+    $('.score').html(
+      'Player 1 : Player 2 <br>' +
+        localStorage.getItem('scorePlayer1') +
+        ' : ' +
+        localStorage.getItem('scorePlayer2')
+    );
+  }
 });
-
-var scorePlayer1 = 0;
-var scorePlayer2 = 0;
-localStorage.setItem('scorePlayer1', scorePlayer1);
-localStorage.setItem('scorePlayer2', scorePlayer2);
-
-$('.score').html(
-  'Player 1 : Player 2 <br>' +
-    localStorage.getItem('scorePlayer1') +
-    ' : ' +
-    localStorage.getItem('scorePlayer2')
-);
 
 /* without jQuery:
 

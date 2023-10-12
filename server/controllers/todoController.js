@@ -1,7 +1,15 @@
-import { List } from './models/mongoDB.js';
+let List;
+async function getListModel() {
+  if (!List) {
+    const module = await import('../models/mongoDB.js');
+    List = module.List;
+  }
+  return List;
+}
 
 export async function handleGet(listName, listTitle, req, res, next) {
   try {
+    const List = await getListModel();
     const foundList = await List.findOne({ name: listName });
     if (!foundList) {
       const list = new List({ name: listName, items: defaultItems });
@@ -20,15 +28,17 @@ export async function handleGet(listName, listTitle, req, res, next) {
 
 export async function handlePostAddItem(listName, itemName, req, res, next) {
   try {
-    const item = new Item({ name: itemName, listName: listName });
+    const List = await getListModel();
     const foundList = await List.findOne({ name: listName });
 
     if (!foundList) {
-      return next(new Error('List not found')); // you can create a specific error object here
+      return next(new Error('List not found'));
     }
 
-    foundList.items.push(item);
+    // Push new item directly to the items array
+    foundList.items.push({ name: itemName });
     await foundList.save();
+
     res.redirect(`/todo/${listName.toLowerCase()}`);
   } catch (err) {
     next(err);
@@ -43,6 +53,7 @@ export async function handlePostDeleteItem(
   next
 ) {
   try {
+    const List = await getListModel();
     const foundList = await List.findOneAndUpdate(
       { name: listName },
       { $pull: { items: { _id: checkedItemId } } },

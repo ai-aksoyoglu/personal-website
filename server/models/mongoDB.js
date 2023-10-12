@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { blogDBconnPromise, todoDBconnPromise } from '../mongoConnection.js';
+import { ConnectionManager } from '../database/index.js';
 
 // Schema Definitions
 const listSchema = new mongoose.Schema({
@@ -31,15 +31,14 @@ const postsSchema = new mongoose.Schema({
 
 let List, Post;
 
-async function setupModels() {
+export async function setupModels() {
   try {
-    // Setting up the model for the blogDB
-    const blogDBconn = await blogDBconnPromise;
-    Post = blogDBconn.model('Post', postsSchema);
+    // Set up the models for each DB connection. Don't change this. If you do const { getBlogConnection, getTodoConnection } = ConnectionManager; you get an error
+    const blogConnection = ConnectionManager.getBlogConnection();
+    const todoConnection = ConnectionManager.getTodoConnection();
 
-    // Setting up the model for the todoDB
-    const todoDBconn = await todoDBconnPromise;
-    List = todoDBconn.model('List', listSchema);
+    Post = blogConnection.model('Post', postsSchema);
+    List = todoConnection.model('List', listSchema);
 
     return { Post, List };
   } catch (error) {
@@ -47,10 +46,6 @@ async function setupModels() {
     throw error; // Throw the error so it can be caught by a higher-level error handler, if needed.
   }
 }
-
-setupModels().catch((error) => {
-  console.error('Failed to setup models:', error);
-});
 
 export { List, Post };
 
