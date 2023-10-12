@@ -1,4 +1,4 @@
-import { setupModels } from '../models/mongoDB.js';
+import { setupModels } from '../database/mongooseModels.js';
 
 let Post;
 

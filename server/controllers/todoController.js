@@ -1,7 +1,7 @@
 let List;
 async function getListModel() {
   if (!List) {
-    const module = await import('../models/mongoDB.js');
+    const module = await import('../database/mongooseModels.js');
     List = module.List;
   }
   return List;

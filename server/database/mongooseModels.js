@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { ConnectionManager } from '../database/index.js';
+import { ConnectionManager } from './index.js';
 
 // Schema Definitions
 const listSchema = new mongoose.Schema({
@@ -48,13 +48,3 @@ export async function setupModels() {
 }
 
 export { List, Post };
-
-// Usage:
-// const todayList = new List({
-//   name: 'Today',
-//   items: [
-//     { name: 'Buy Food' },
-//     { name: 'Cook' },
-//     { name: 'Eat 🎉' }
-//   ]
-// });

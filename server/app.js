@@ -1,7 +1,7 @@
 import express from 'express';
 import config from '../config.js';
 import ConnectionManager from './database/connectionManager.js';
-import { setupModels } from './models/mongoDB.js';
+import { setupModels } from './database/mongooseModels.js';
 import setupExpressApp from './setupExpressApp.js';
 
 const app = express();
