@@ -15,7 +15,7 @@ body {
 
 h1 {
   margin: 30px;
-  font-family: 'Lobster', cursive;
+  font-family: Lobster, cursive;
   text-shadow: 5px 0 #232931;
   font-size: 8rem;
   color: #4ecca3;
@@ -33,34 +33,25 @@ img {
 
 footer {
   margin-top: 5%;
-  color: #eeeeee;
+  color: #eee;
   text-align: center;
   font-family: 'Indie Flower', cursive;
 }
 
 .btn {
   background: #5fd411;
-  background-image: -webkit-linear-gradient(top, #5fd411, #4eac10);
-  background-image: -moz-linear-gradient(top, #5fd411, #4eac10);
-  background-image: -ms-linear-gradient(top, #5fd411, #4eac10);
-  background-image: -o-linear-gradient(top, #5fd411, #4eac10);
   background-image: linear-gradient(to bottom, #5fd411, #4eac10);
-  -webkit-border-radius: 8;
-  -moz-border-radius: 8;
+  border-radius: 8;
   border-radius: 8px;
-  font-family: 'Montserrat', sans-serif;
-  color: #ffffff;
+  font-family: Montserrat, sans-serif;
+  color: #fff;
   font-size: 20px;
-  padding: 10px 20px 10px 20px;
+  padding: 10px 20px;
   text-decoration: none;
 }
 
 .btn:hover {
   background: #88be96;
-  background-image: -webkit-linear-gradient(top, #88be96, #2bc4ad);
-  background-image: -moz-linear-gradient(top, #88be96, #2bc4ad);
-  background-image: -ms-linear-gradient(top, #88be96, #2bc4ad);
-  background-image: -o-linear-gradient(top, #88be96, #2bc4ad);
   background-image: linear-gradient(to bottom, #88be96, #2bc4ad);
   text-decoration: none;
 }
